@@ -336,3 +336,488 @@
   </script>
 </body>
 </html>
+
+<style>
+  :root {
+    --cw-bg: #050816;
+    --cw-bg-light: #0f172a;
+    --cw-accent: #fbbf24;
+    --cw-accent-soft: rgba(251, 191, 36, 0.12);
+    --cw-text: #e5e7eb;
+    --cw-muted: #9ca3af;
+    --cw-border: #1f2937;
+    --cw-radius-lg: 18px;
+    --cw-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
+  }
+
+  .cw-app-section {
+    background: radial-gradient(circle at top, #111827 0%, #020617 55%, #000 100%);
+    color: var(--cw-text);
+    padding: 60px 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .cw-app-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .cw-app-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+
+  .cw-app-pill-badge {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--cw-accent);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+  }
+
+  .cw-app-header {
+    max-width: 640px;
+    margin-bottom: 36px;
+  }
+
+  .cw-app-title {
+    font-size: clamp(2.1rem, 4vw, 2.7rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 10px;
+  }
+
+  .cw-app-highlight {
+    background: linear-gradient(90deg, #fbbf24, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .cw-app-subtitle {
+    font-size: 0.98rem;
+    color: var(--cw-muted);
+    line-height: 1.6;
+  }
+
+  .cw-app-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 880px) {
+    .cw-app-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .cw-card {
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.85));
+    border-radius: var(--cw-radius-lg);
+    border: 1px solid rgba(31, 41, 55, 0.95);
+    box-shadow: var(--cw-shadow-soft);
+    padding: 22px 20px;
+  }
+
+  .cw-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .cw-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .cw-card-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: var(--cw-accent-soft);
+    color: var(--cw-accent);
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    white-space: nowrap;
+  }
+
+  .cw-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .cw-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--cw-text);
+  }
+
+  .cw-feature-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .cw-feature-label {
+    font-weight: 600;
+    display: block;
+  }
+
+  .cw-feature-meta {
+    font-size: 0.84rem;
+    color: var(--cw-muted);
+  }
+
+  /* Pricing */
+  .cw-pricing-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cw-tier {
+    border-radius: 16px;
+    border: 1px solid var(--cw-border);
+    padding: 14px 14px 14px 16px;
+    background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.15), rgba(15, 23, 42, 0.95));
+  }
+
+  .cw-tier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .cw-tier-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .cw-tier-price {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cw-accent);
+    white-space: nowrap;
+  }
+
+  .cw-tier-desc {
+    font-size: 0.78rem;
+    color: var(--cw-muted);
+    margin-bottom: 6px;
+  }
+
+  .cw-tier-features {
+    font-size: 0.8rem;
+    color: var(--cw-text);
+    margin: 0;
+    padding-left: 16px;
+  }
+
+  .cw-tier-feature-item {
+    margin-bottom: 2px;
+  }
+
+  .cw-tier-feature-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .cw-app-footer {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cw-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cw-btn-primary,
+  .cw-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+    white-space: nowrap;
+  }
+
+  .cw-btn-primary {
+    background: linear-gradient(135deg, #fbbf24, #f97316);
+    color: #0b1120;
+    box-shadow: 0 12px 30px rgba(248, 181, 43, 0.4);
+  }
+
+  .cw-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 40px rgba(248, 181, 43, 0.5);
+  }
+
+  .cw-btn-ghost {
+    background: rgba(15, 23, 42, 0.95);
+    color: var(--cw-text);
+    border-color: rgba(148, 163, 184, 0.6);
+  }
+
+  .cw-btn-ghost:hover {
+    background: rgba(15, 23, 42, 1);
+    border-color: rgba(249, 250, 251, 0.7);
+    transform: translateY(-1px);
+  }
+
+  .cw-app-note {
+    font-size: 0.78rem;
+    color: var(--cw-muted);
+  }
+
+  @media (max-width: 640px) {
+    .cw-app-section {
+      padding: 40px 14px;
+    }
+
+    .cw-card {
+      padding: 18px 16px;
+    }
+
+    .cw-app-footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<section id="coxwise-app" class="cw-app-section">
+  <div class="cw-app-container">
+    <div class="cw-app-pill">
+      <span class="cw-app-pill-badge"></span>
+      <span>Now Launching • Coxwise App</span>
+    </div>
+
+    <div class="cw-app-header">
+      <h2 class="cw-app-title">
+        Turn ideas into income with the
+        <span class="cw-app-highlight">Coxwise App</span>.
+      </h2>
+      <p class="cw-app-subtitle">
+        Submit your business idea, let Coxwise build the blueprint, and plug into coaching, community, and real strategy.
+        One platform for plans, structure, funding prep, and mentorship.
+      </p>
+    </div>
+
+    <div class="cw-app-grid">
+      <!-- Features Card -->
+      <article class="cw-card">
+        <div class="cw-card-header">
+          <h3 class="cw-card-title">What the Coxwise App Does</h3>
+          <span class="cw-card-tag">Features</span>
+        </div>
+
+        <ul class="cw-feature-list">
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">✓</div>
+            <div>
+              <span class="cw-feature-label">Submit Business Idea</span>
+              <span class="cw-feature-meta">Capture your concept in a few guided prompts.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">AI</div>
+            <div>
+              <span class="cw-feature-label">Coxwise Business Plan Generator</span>
+              <span class="cw-feature-meta">Instant, structured plans ready to refine and present.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">★</div>
+            <div>
+              <span class="cw-feature-label">Idea Scoring System</span>
+              <span class="cw-feature-meta">Measure strength, feasibility, and profit potential.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">§</div>
+            <div>
+              <span class="cw-feature-label">Legal Structure Suggestions</span>
+              <span class="cw-feature-meta">Get guidance on LLC, S-Corp, nonprofit and more.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">📊</div>
+            <div>
+              <span class="cw-feature-label">Market Analysis</span>
+              <span class="cw-feature-meta">Target audience, competition, and positioning in one view.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">▶</div>
+            <div>
+              <span class="cw-feature-label">Pitch Deck Generator</span>
+              <span class="cw-feature-meta">Slide outline for investors, lenders, or partners.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">$</div>
+            <div>
+              <span class="cw-feature-label">Consulting Credit System</span>
+              <span class="cw-feature-meta">Earn and apply credits toward 1-on-1 Coxwise consulting.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">💳</div>
+            <div>
+              <span class="cw-feature-label">Secure Payment Gateway</span>
+              <span class="cw-feature-meta">Upgrade plans and book coaching directly inside the app.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">🔑</div>
+            <div>
+              <span class="cw-feature-label">Membership Portal</span>
+              <span class="cw-feature-meta">Access your ideas, plans, downloads, and coaching history.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">📚</div>
+            <div>
+              <span class="cw-feature-label">Resource Library</span>
+              <span class="cw-feature-meta">Templates, checklists, and guides for every stage.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">🎥</div>
+            <div>
+              <span class="cw-feature-label">Mentorship Video Vault</span>
+              <span class="cw-feature-meta">On-demand trainings and walkthroughs from Paul & partners.</span>
+            </div>
+          </li>
+          <li class="cw-feature-item">
+            <div class="cw-feature-icon">Q&A</div>
+            <div>
+              <span class="cw-feature-label">Monthly “Ask Paul” Live Q&amp;A</span>
+              <span class="cw-feature-meta">Bring your questions and get direct, real-time feedback.</span>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Pricing Card -->
+      <aside class="cw-card">
+        <div class="cw-card-header">
+          <h3 class="cw-card-title">Pick Your Path</h3>
+          <span class="cw-card-tag">Pricing</span>
+        </div>
+
+        <div class="cw-pricing-stack">
+          <!-- Free Tier -->
+          <div class="cw-tier">
+            <div class="cw-tier-header">
+              <span class="cw-tier-name">Free Tier</span>
+              <span class="cw-tier-price">$0 / month</span>
+            </div>
+            <p class="cw-tier-desc">Perfect for testing the waters and capturing your first ideas.</p>
+            <ul class="cw-tier-features">
+              <li class="cw-tier-feature-item">Limited idea submissions</li>
+              <li class="cw-tier-feature-item">Basic idea scoring</li>
+              <li class="cw-tier-feature-item">Access to select resources</li>
+            </ul>
+          </div>
+
+          <!-- Starter -->
+          <div class="cw-tier">
+            <div class="cw-tier-header">
+              <span class="cw-tier-name">Starter</span>
+              <span class="cw-tier-price">$9.99 / month</span>
+            </div>
+            <p class="cw-tier-desc">For serious starters who want unlimited space for ideas.</p>
+            <ul class="cw-tier-features">
+              <li class="cw-tier-feature-item">Unlimited idea submissions</li>
+              <li class="cw-tier-feature-item">Access to templates &amp; checklists</li>
+              <li class="cw-tier-feature-item">Basic AI guidance on next steps</li>
+            </ul>
+          </div>
+
+          <!-- Builder -->
+          <div class="cw-tier">
+            <div class="cw-tier-header">
+              <span class="cw-tier-name">Builder</span>
+              <span class="cw-tier-price">$49.99 / month</span>
+            </div>
+            <p class="cw-tier-desc">Turn your best ideas into full business plans with mentorship.</p>
+            <ul class="cw-tier-features">
+              <li class="cw-tier-feature-item">Everything in Starter</li>
+              <li class="cw-tier-feature-item">AI business plan generator</li>
+              <li class="cw-tier-feature-item">Access to Mentorship Video Vault</li>
+              <li class="cw-tier-feature-item">Priority email support</li>
+            </ul>
+          </div>
+
+          <!-- Premium Coaching -->
+          <div class="cw-tier">
+            <div class="cw-tier-header">
+              <span class="cw-tier-name">Coxwise Premium Coaching</span>
+              <span class="cw-tier-price">$199 / month</span>
+            </div>
+            <p class="cw-tier-desc">Hands-on guidance with direct access to Paul &amp; Coxwise strategy.</p>
+            <ul class="cw-tier-features">
+              <li class="cw-tier-feature-item">Everything in Builder</li>
+              <li class="cw-tier-feature-item">Monthly 1-on-1 coaching session</li>
+              <li class="cw-tier-feature-item">Extra consulting credits in the app</li>
+              <li class="cw-tier-feature-item">VIP priority in “Ask Paul” Q&amp;A</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cw-app-footer">
+          <div class="cw-cta-group">
+            <!-- Update hrefs to your real sign-up/login links -->
+            <a href="#get-started" class="cw-btn-primary">Get Started Free</a>
+            <a href="#book-call" class="cw-btn-ghost">Talk to Coxwise</a>
+          </div>
+          <p class="cw-app-note">
+            No long-term contracts. Upgrade, downgrade, or cancel anytime.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
