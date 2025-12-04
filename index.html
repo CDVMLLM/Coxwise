@@ -36,7 +36,195 @@
       </nav>
     </div>
   </header>
+  
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coxwise Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CRISP CHAT WIDGET (YOUR SNIPPET) -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "9bf7641e-b400-4bed-9dd0-f2299d6e9124";
+    (function () {
+      var d = document;
+      var s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
+
+  <style>
+    /* Simple “animation” so the site feels alive when chat opens */
+    .coxwise-highlight {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .coxwise-bounce {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Example hero section you might already have -->
+  <section id="coxwise-hero" class="coxwise-highlight">
+    <h1>Coxwise Consulting</h1>
+    <p>Turn your idea into a launch-ready business plan with expert guidance.</p>
+    <button id="start-chat-btn">Talk to the Coxwise AI Assistant</button>
+  </section>
+
+  <script>
+    // Small helper to run code once Crisp is fully loaded
+    function onCrispReady(callback) {
+      var checkInterval = setInterval(function () {
+        if (window.$crisp && window.$crisp.is_loaded) {
+          clearInterval(checkInterval);
+          callback();
+        }
+      }, 300);
+    }
+
+    // 1️⃣ When the page loads, set up the Coxwise AI Assistant behavior
+    onCrispReady(function () {
+      // Optional: Set some session data for your own organization/filtering in the Crisp dashboard
+      window.$crisp.push(["set", "session:segments", [["coxwise_consulting", "coxwise_ai_assistant"]]]);
+
+      // Optional: auto-open chat after a delay to “animate”/engage the user
+      setTimeout(function () {
+        window.$crisp.push(["do", "chat:open"]);
+        sendCoxwiseWelcome();
+      }, 5000); // 5 seconds after page load
+    });
+
+    // 2️⃣ Button on your site that opens the chat and starts the flow
+    document.getElementById("start-chat-btn").addEventListener("click", function () {
+      window.$crisp.push(["do", "chat:open"]);
+      sendCoxwiseWelcome();
+      animateHero();
+    });
+
+    // 3️⃣ Step 1: Welcome + intake questions
+    function sendCoxwiseWelcome() {
+      // Prevent sending multiple times in one session (very simple guard)
+      if (window.coxwiseWelcomeSent) return;
+      window.coxwiseWelcomeSent = true;
+
+      window.$crisp.push([
+        "do",
+        "message:send",
+        [
+          "text",
+          "👋 Welcome to Coxwise Consulting.\n\nI’m the Coxwise AI Assistant.\n" +
+          "I’ll collect a few details about your idea and then guide you to complete payment before we deliver your full Business Plan Assessment."
+        ]
+      ]);
+
+      window.$crisp.push([
+        "do",
+        "message:send",
+        [
+          "text",
+          "To get started, please answer these in one message:\n\n" +
+          "1️⃣ What stage are you at? (idea / side hustle / already operating)\n" +
+          "2️⃣ Who do you want to serve? (your ideal customer)\n" +
+          "3️⃣ What’s your approximate monthly budget for this business?\n" +
+          "4️⃣ What’s your timeline to launch or grow? (e.g. 3 months, 6 months)\n" +
+          "5️⃣ What’s your biggest question or challenge right now?"
+        ]
+      ]);
+
+      window.$crisp.push([
+        "do",
+        "message:send",
+        [
+          "text",
+          "Once you send this, I’ll share the payment link so we can unlock your detailed Coxwise Business Plan Assessment."
+        ]
+      ]);
+    }
+
+    // 4️⃣ Step 2: Send payment link before assessment
+    // 👉 You can call this manually from the Crisp inbox by sending a quick macro,
+    // or hook it up to your own event flow. Here we expose it globally:
+    window.coxwiseSendPaymentStep = function () {
+      window.$crisp.push([
+        "do",
+        "message:send",
+        [
+          "text",
+          "✅ Thank you for sharing your business details.\n\n" +
+          "Before we prepare your full Coxwise Business Plan Assessment, " +
+          "please complete the consulting payment using the secure link below:"
+        ]
+      ]);
+
+      // 🔗 Replace this with your real Stripe/PayPal payment URL
+      var paymentUrl = "https://your-payment-link-here.com";
+
+      window.$crisp.push([
+        "do",
+        "message:send",
+        [
+          "text",
+          "💳 Click here to pay now: " + paymentUrl + "\n\n" +
+          "When you are done, return to this chat and type **PAID** so we can finalize your assessment."
+        ]
+      ]);
+    };
+
+    // 5️⃣ Step 3: After payment, deliver the Business Plan Assessment
+    // ❗ NOTE: Truly verifying payment should be done on your server (Stripe/PayPal webhook),
+    // then you (or an internal tool) respond in Crisp. On the front-end, we can only listen
+    // for the keyword “PAID” and respond.
+    window.coxwiseHandlePaidKeyword = function (lastMessageText) {
+      // Basic check; you could make this more robust:
+      if (!lastMessageText) return;
+      if (lastMessageText.trim().toUpperCase() !== "PAID") return;
+
+      window.$crisp.push([
+        "do",
+        "message:send",
+        [
+          "text",
+          "🔥 Awesome! We’ve noted your payment.\n\n" +
+          "Your Coxwise Business Plan Assessment will include:\n" +
+          "- Market & audience snapshot\n" +
+          "- Revenue model & pricing suggestions\n" +
+          "- Launch checklist\n" +
+          "- Next 3 action steps\n\n" +
+          "You will receive your full written assessment via email and/or downloadable link after review. " +
+          "If you have any additional details to add, you can type them here now."
+        ]
+      ]);
+    };
+
+    // 6️⃣ Optional: animate your hero section when chat opens ("total animated" effect)
+    function animateHero() {
+      var hero = document.getElementById("coxwise-hero");
+      if (!hero) return;
+      hero.classList.add("coxwise-bounce");
+      setTimeout(function () {
+        hero.classList.remove("coxwise-bounce");
+      }, 800);
+    }
+
+    // 7️⃣ (Optional advanced) Listen for user messages and catch the word "PAID"
+    // Crisp exposes various events; if you enable message events in your account / plugin,
+    // you can connect here. This is a placeholder pattern:
+    // window.$crisp.push(["on", "message:received", function(data) {
+    //   var content = data && data.content;
+    //   if (content) {
+    //     window.coxwiseHandlePaidKeyword(content);
+    //   }
+    // }]);
+  </script>
+</body>
+</html>
   <main>
     <!-- HERO -->
     <section id="home" class="hero">
