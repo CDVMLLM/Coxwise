@@ -1,652 +1,1084 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coxwise Diversified Venture Management | Strategy & Venture Consulting</title>
-  <meta name="description" content="Coxwise Diversified Venture Management helps entrepreneurs and small business owners turn raw ideas into real, structured ventures with clarity, strategy, and accountability.">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Favicon (make sure these files exist in /assets) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png" />
-  <link rel="apple-touch-icon" href="assets/favicon-512.png" />
-</head>
-
-<body>
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <div class="logo">
-        <img src="assets/logo-coxwise.png" alt="Coxwise logo" class="logo-mark" />
-        <div class="logo-text">
-          <span class="logo-main">Coxwise</span>
-          <span class="logo-sub">Diversified Venture Management</span>
-        </div>
-      </div>
-      <nav class="main-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#payment">Consultations</a>
-        <a href="#intake">Submit Idea</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-  
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Coxwise Consulting</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coxwise | College Payment & Student Business Plan Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Coxwise helps students and families use business planning and side hustles to support college costs, guided by Hope AI and coaching." />
 
-  <!-- CRISP CHAT WIDGET (YOUR SNIPPET) -->
+  <!-- Basic Styling -->
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --accent-strong: #22c55e;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --card: #111827;
+      --border-subtle: #1f2933;
+      --danger: #ef4444;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 20px 45px rgba(0, 0, 0, 0.45);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.95), rgba(5, 8, 22, 0.75), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 25% 25%, #22c55e, #4f46e5 55%, #0ea5e9 100%);
+      box-shadow: 0 0 22px rgba(56, 189, 248, 0.5);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    .brand-text strong {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+    }
+
+    .brand-text span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.6));
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.5);
+    }
+
+    .nav-cta span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      margin-bottom: 1.1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-kicker span.badge {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #c7d2fe;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3vw + 1rem, 3.3rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span.accent {
+      background: linear-gradient(to right, #22c55e, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 28rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      padding: 0.7rem 1.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #4f46e5, #22c55e);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 50px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209, 213, 219, 0.9);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .hero-footnote {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-footnote span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.2), transparent 50%), #020617;
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.6rem 1.45rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5b4fc;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-list span.bullet {
+      margin-top: 0.2rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(129, 140, 248, 0.8);
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: #cbd5f5;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      padding-top: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .hero-pill {
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: rgba(22, 163, 74, 0.14);
+      border: 1px solid rgba(22, 163, 74, 0.6);
+      color: #bbf7d0;
+    }
+
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .section-heading {
+      margin-bottom: 1.7rem;
+    }
+
+    .section-kicker {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .step-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+    }
+
+    .step-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.15rem;
+    }
+
+    .step-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .step-card p {
+      color: var(--text-muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+    }
+
+    .service-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .service-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.2rem;
+    }
+
+    .service-chip {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .services-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .price-card {
+      background: #020617;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.1rem;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.7);
+    }
+
+    .price-name {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.15rem;
+    }
+
+    .price-tagline {
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .price-amount {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .price-amount span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .price-list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .price-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .price-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #bbf7d0;
+      margin-bottom: 0.35rem;
+    }
+
+    .price-card.highlight {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4), 0 24px 60px rgba(21, 128, 61, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.highlight::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(34, 197, 94, 0.18), transparent);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .price-card.highlight > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hope-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .hope-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hope-card {
+      background: var(--card);
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      font-size: 0.86rem;
+    }
+
+    .hope-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hope-card p {
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .hope-list {
+      list-style: none;
+      color: #e5e7eb;
+      font-size: 0.82rem;
+    }
+
+    .hope-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 880px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about-text p + p {
+      margin-top: 0.7rem;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      font-size: 0.86rem;
+    }
+
+    .contact-row {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .contact-value {
+      font-size: 0.9rem;
+    }
+
+    .contact-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.4rem 1.25rem 1.6rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      background: #020617;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+  </style>
+
+  <!-- Crisp Chat: Coxwise Consulting Chatbot -->
   <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "9bf7641e-b400-4bed-9dd0-f2299d6e9124";
     (function () {
-      var d = document;
-      var s = d.createElement("script");
+      d = document;
+      s = d.createElement("script");
       s.src = "https://client.crisp.chat/l.js";
       s.async = 1;
       d.getElementsByTagName("head")[0].appendChild(s);
     })();
   </script>
-
-  <style>
-    /* Simple “animation” so the site feels alive when chat opens */
-    .coxwise-highlight {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .coxwise-bounce {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-  </style>
 </head>
 <body>
+  <div class="page">
+    <!-- Header / Nav -->
+    <header>
+      <div class="nav-inner">
+        <a href="#top" class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <strong>COXWISE</strong>
+            <span>College & Business Planning</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="#how">How it works</a>
+          <a href="#services">Services</a>
+          <a href="#hope-ai">Hope AI</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="nav-cta" onclick="document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'})">
+          <span class="dot"></span>
+          <span>Book a consult</span>
+        </button>
+      </div>
+    </header>
 
-  <!-- Example hero section you might already have -->
-  <section id="coxwise-hero" class="coxwise-highlight">
-    <h1>Coxwise Consulting</h1>
-    <p>Turn your idea into a launch-ready business plan with expert guidance.</p>
-    <button id="start-chat-btn">Talk to the Coxwise AI Assistant</button>
-  </section>
-
-  <script>
-    // Small helper to run code once Crisp is fully loaded
-    function onCrispReady(callback) {
-      var checkInterval = setInterval(function () {
-        if (window.$crisp && window.$crisp.is_loaded) {
-          clearInterval(checkInterval);
-          callback();
-        }
-      }, 300);
-    }
-
-    // 1️⃣ When the page loads, set up the Coxwise AI Assistant behavior
-    onCrispReady(function () {
-      // Optional: Set some session data for your own organization/filtering in the Crisp dashboard
-      window.$crisp.push(["set", "session:segments", [["coxwise_consulting", "coxwise_ai_assistant"]]]);
-
-      // Optional: auto-open chat after a delay to “animate”/engage the user
-      setTimeout(function () {
-        window.$crisp.push(["do", "chat:open"]);
-        sendCoxwiseWelcome();
-      }, 5000); // 5 seconds after page load
-    });
-
-    // 2️⃣ Button on your site that opens the chat and starts the flow
-    document.getElementById("start-chat-btn").addEventListener("click", function () {
-      window.$crisp.push(["do", "chat:open"]);
-      sendCoxwiseWelcome();
-      animateHero();
-    });
-
-    // 3️⃣ Step 1: Welcome + intake questions
-    function sendCoxwiseWelcome() {
-      // Prevent sending multiple times in one session (very simple guard)
-      if (window.coxwiseWelcomeSent) return;
-      window.coxwiseWelcomeSent = true;
-
-      window.$crisp.push([
-        "do",
-        "message:send",
-        [
-          "text",
-          "👋 Welcome to Coxwise Consulting.\n\nI’m the Coxwise AI Assistant.\n" +
-          "I’ll collect a few details about your idea and then guide you to complete payment before we deliver your full Business Plan Assessment."
-        ]
-      ]);
-
-      window.$crisp.push([
-        "do",
-        "message:send",
-        [
-          "text",
-          "To get started, please answer these in one message:\n\n" +
-          "1️⃣ What stage are you at? (idea / side hustle / already operating)\n" +
-          "2️⃣ Who do you want to serve? (your ideal customer)\n" +
-          "3️⃣ What’s your approximate monthly budget for this business?\n" +
-          "4️⃣ What’s your timeline to launch or grow? (e.g. 3 months, 6 months)\n" +
-          "5️⃣ What’s your biggest question or challenge right now?"
-        ]
-      ]);
-
-      window.$crisp.push([
-        "do",
-        "message:send",
-        [
-          "text",
-          "Once you send this, I’ll share the payment link so we can unlock your detailed Coxwise Business Plan Assessment."
-        ]
-      ]);
-    }
-
-    // 4️⃣ Step 2: Send payment link before assessment
-    // 👉 You can call this manually from the Crisp inbox by sending a quick macro,
-    // or hook it up to your own event flow. Here we expose it globally:
-    window.coxwiseSendPaymentStep = function () {
-      window.$crisp.push([
-        "do",
-        "message:send",
-        [
-          "text",
-          "✅ Thank you for sharing your business details.\n\n" +
-          "Before we prepare your full Coxwise Business Plan Assessment, " +
-          "please complete the consulting payment using the secure link below:"
-        ]
-      ]);
-
-      // 🔗 Replace this with your real Stripe/PayPal payment URL
-      var paymentUrl = "https://your-payment-link-here.com";
-
-      window.$crisp.push([
-        "do",
-        "message:send",
-        [
-          "text",
-          "💳 Click here to pay now: " + paymentUrl + "\n\n" +
-          "When you are done, return to this chat and type **PAID** so we can finalize your assessment."
-        ]
-      ]);
-    };
-
-    // 5️⃣ Step 3: After payment, deliver the Business Plan Assessment
-    // ❗ NOTE: Truly verifying payment should be done on your server (Stripe/PayPal webhook),
-    // then you (or an internal tool) respond in Crisp. On the front-end, we can only listen
-    // for the keyword “PAID” and respond.
-    window.coxwiseHandlePaidKeyword = function (lastMessageText) {
-      // Basic check; you could make this more robust:
-      if (!lastMessageText) return;
-      if (lastMessageText.trim().toUpperCase() !== "PAID") return;
-
-      window.$crisp.push([
-        "do",
-        "message:send",
-        [
-          "text",
-          "🔥 Awesome! We’ve noted your payment.\n\n" +
-          "Your Coxwise Business Plan Assessment will include:\n" +
-          "- Market & audience snapshot\n" +
-          "- Revenue model & pricing suggestions\n" +
-          "- Launch checklist\n" +
-          "- Next 3 action steps\n\n" +
-          "You will receive your full written assessment via email and/or downloadable link after review. " +
-          "If you have any additional details to add, you can type them here now."
-        ]
-      ]);
-    };
-
-    // 6️⃣ Optional: animate your hero section when chat opens ("total animated" effect)
-    function animateHero() {
-      var hero = document.getElementById("coxwise-hero");
-      if (!hero) return;
-      hero.classList.add("coxwise-bounce");
-      setTimeout(function () {
-        hero.classList.remove("coxwise-bounce");
-      }, 800);
-    }
-
-    // 7️⃣ (Optional advanced) Listen for user messages and catch the word "PAID"
-    // Crisp exposes various events; if you enable message events in your account / plugin,
-    // you can connect here. This is a placeholder pattern:
-    // window.$crisp.push(["on", "message:received", function(data) {
-    //   var content = data && data.content;
-    //   if (content) {
-    //     window.coxwiseHandlePaidKeyword(content);
-    //   }
-    // }]);
-  </script>
-</body>
-</html>
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container hero-content">
-        <div class="hero-text">
-          <h1>Turn raw ideas into real ventures.</h1>
-          <p>
-            Coxwise Diversified Venture Management partners with builders, entrepreneurs, and small business owners
-            to transform scattered ideas into clear, actionable, and sustainable businesses.
+    <main id="top">
+      <!-- HERO (student + college focus) -->
+      <section class="hero">
+        <div>
+          <div class="hero-kicker">
+            <span class="badge">For students & families</span>
+            <span>Use business planning to help pay for college.</span>
+          </div>
+          <h1 class="hero-title">
+            Turn your ideas into a <span class="accent">college funding plan</span> with Coxwise &amp; Hope AI.
+          </h1>
+          <p class="hero-subtitle">
+            Coxwise helps students and families turn side hustles, programs, and passion projects into
+            <strong>structured business plans</strong> that support college costs, scholarships, and long-term goals.
           </p>
           <div class="hero-actions">
-            <a href="#payment" class="btn primary">Book a Consultation</a>
-            <a href="#intake" class="btn outline">Submit Your Business Idea</a>
+            <a href="#contact" class="btn-primary">Schedule a College Funding Session</a>
+            <a href="#how" class="btn-ghost">See how Coxwise helps students</a>
+          </div>
+          <div class="hero-footnote">
+            <span class="dot"></span>
+            <span>Designed for high school & college students, parents, and schools who want a real plan—not just hope.</span>
           </div>
         </div>
-        <div class="hero-card">
-          <h2>Strategy. Structure. Accountability.</h2>
+
+        <aside class="hero-card" aria-label="Hope AI student planning preview">
+          <div class="hero-card-tag">Hope AI • College Planning Preview</div>
+          <h3>“How do you want your education to be paid for?”</h3>
           <p>
-            One focused partnership to help you see the whole board — not just the next move. 
-            Coxwise brings real-world experience, clarity, and honest feedback to your vision.
+            Hope AI asks a few smart questions about your goals, timeline, and resources, then sketches out business and
+            income ideas that can support your college journey.
           </p>
-          <ul class="hero-list">
-            <li>Idea clarity & feasibility</li>
-            <li>Business model & offer structure</li>
-            <li>Operational discipline & execution support</li>
+          <ul class="hero-card-list">
+            <li>
+              <span class="bullet"></span>
+              <span>Connects your talents and interests to realistic ways to earn money during school.</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Outlines a business or side-hustle plan that can be used for classes, programs, or competitions.</span>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <span>Prepares talking points you can share with mentors, parents, and potential supporters.</span>
+            </li>
           </ul>
-          <a class="btn full" href="#services">Explore Services</a>
-          <p class="note">
-            Start with a paid consultation, then decide if you want deeper strategy or ongoing advisory support.
+          <div class="hero-chip-row">
+            <span class="chip">College funding ideas</span>
+            <span class="chip">Student business plan support</span>
+            <span class="chip">Scholarship & program prep</span>
+            <span class="chip">Parent–student planning</span>
+          </div>
+          <div class="hero-card-footer">
+            <span>Use Hope AI together with a Coxwise coach.</span>
+            <span class="hero-pill">Coxwise • College Ready</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how">
+        <div class="section-heading">
+          <div class="section-kicker">How it works</div>
+          <h2 class="section-title">From “how will we pay for college?” to a real plan.</h2>
+          <p class="section-subtitle">
+            Coxwise combines Hope AI, student-friendly business planning, and coaching to help you turn ideas into
+            practical support for tuition, books, and life in college.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container split">
-        <div>
-          <h2>About Coxwise</h2>
-          <p>
-            Coxwise Diversified Venture Management exists to help people who have real-life experience, grit, and vision
-            turn their ideas into structured, sustainable ventures. We understand what it means to juggle family,
-            work, community, and ambition — and still want more for your future.
-          </p>
-          <p>
-            Coxwise focuses on clarity, strategy, and execution. We help you organize the moving pieces, see the risks,
-            and build a practical plan that respects both your goals and your reality. No hype. No gimmicks.
-            Just real-world consulting for serious builders.
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-label">Step 1</div>
+            <h3 class="step-title">Clarify your college money goal</h3>
+            <p>
+              We start with your situation: expected costs, financial aid, scholarships, and what you can safely earn
+              while staying focused on school.
+            </p>
+          </article>
+          <article class="step-card">
+            <div class="step-label">Step 2</div>
+            <h3 class="step-title">Match ideas to students</h3>
+            <p>
+              Hope AI and Coxwise identify side hustles, micro-businesses, and programs that fit your skills, schedule,
+              and local reality—not one-size-fits-all advice.
+            </p>
+          </article>
+          <article class="step-card">
+            <div class="step-label">Step 3</div>
+            <h3 class="step-title">Build a student-ready business plan</h3>
+            <p>
+              Together we shape a clear, readable business plan that students can use for classes, pitch nights,
+              youth entrepreneurship programs, and real-world execution.
+            </p>
+          </article>
+          <article class="step-card">
+            <div class="step-label">Step 4</div>
+            <h3 class="step-title">Turn the plan into action</h3>
+            <p>
+              Coxwise provides accountability, tools, and next-step guidance so you’re not just writing a plan—you’re using
+              it to create income and opportunities that support college.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="section-heading">
+          <div class="section-kicker">Services</div>
+          <h2 class="section-title">Support for students, parents, and schools.</h2>
+          <p class="section-subtitle">
+            Coxwise focuses on college payment planning, student business plans, and real-world readiness—so young people
+            aren’t trying to figure it all out alone.
           </p>
         </div>
-        <div class="about-highlight">
-          <h3>About Paul J.R. Cox Sr.</h3>
-          <p>
-            Paul J.R. Cox Sr. is the founder of Coxwise Diversified Venture Management, an educator, entrepreneur,
-            and strategist committed to helping others build businesses that actually work. With a background in
-            education, leadership, and multi-stream entrepreneurship, Paul brings both structure and empathy to
-            every engagement.
-          </p>
-          <p>
-            He partners with clients who are ready to move past talking about their ideas and start building them —
-            step by step, with accountability and clear direction.
+
+        <div class="services-grid">
+          <div>
+            <div class="service-card" style="margin-bottom: 1rem;">
+              <h3>College Payment & Pathway Planning</h3>
+              <p>
+                We help students and families understand the full picture of paying for college, then explore realistic ways
+                to use business plans and side income to support that journey.
+              </p>
+              <div class="service-chip-row">
+                <span class="service-chip">College cost clarity</span>
+                <span class="service-chip">Income strategy</span>
+                <span class="service-chip">Parent–student planning</span>
+                <span class="service-chip">Scholarship alignment</span>
+              </div>
+            </div>
+
+            <p class="services-note">
+              Whether you’re a 10th grader dreaming ahead, a senior choosing schools, or already in college, Coxwise helps
+              you connect your education plan with a realistic money plan.
+            </p>
+          </div>
+
+          <div class="service-list">
+            <article class="service-card">
+              <h3>Student Business Plan Lab</h3>
+              <p>
+                Guided support for students to design a business or side hustle that fits school, life, and character—not just
+                a “shark tank” pitch.
+              </p>
+              <div class="service-chip-row">
+                <span class="service-chip">Idea development</span>
+                <span class="service-chip">Business plan coaching</span>
+                <span class="service-chip">Project & class support</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <h3>Hope AI for Students</h3>
+              <p>
+                A student-friendly version of Hope AI that asks the right questions, scores ideas, and outlines next steps
+                without doing the learning for you.
+              </p>
+              <div class="service-chip-row">
+                <span class="service-chip">Idea scoring</span>
+                <span class="service-chip">Outline support</span>
+                <span class="service-chip">Goal-based pathways</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <h3>Family & Guardian Sessions</h3>
+              <p>
+                Structured conversations that bring parents, guardians, and students to the same table around education,
+                money, and expectations.
+              </p>
+              <div class="service-chip-row">
+                <span class="service-chip">Shared understanding</span>
+                <span class="service-chip">Joint planning</span>
+                <span class="service-chip">Support roles</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <h3>School & Program Partnerships</h3>
+              <p>
+                Custom workshops and planning tracks for schools, academies, and youth programs that want a practical pathway
+                from classroom to college and career.
+              </p>
+              <div class="service-chip-row">
+                <span class="service-chip">Curriculum support</span>
+                <span class="service-chip">Workshops</span>
+                <span class="service-chip">Youth entrepreneurship</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOPE AI -->
+      <section id="hope-ai">
+        <div class="section-heading">
+          <div class="section-kicker">Hope AI</div>
+          <h2 class="section-title">Helping students think, plan, and prepare.</h2>
+          <p class="section-subtitle">
+            Hope AI is the Coxwise intelligence layer built to support learning—not shortcut it. Students still do the work;
+            Hope AI keeps them focused, structured, and forward-thinking.
           </p>
         </div>
-      </div>
-    </section>
-    
-<section id="why-coxwise" class="why-coxwise">
-  <div class="container">
-    <h2>What Makes Coxwise Different From All the Rest</h2>
-    <p class="lead">
-      Coxwise stands out because it’s built on something most consulting companies don’t have—
-      <strong>real life experience, real community roots, and real results.</strong>
-    </p>
 
-    <p>
-      Where others offer generic advice, <strong>Coxwise delivers transformation.</strong>
-      You don’t just get a consultant—you get a partner who understands the hustle, the struggle,
-      the growth, and the responsibility of building something that lasts.
-    </p>
+        <div class="hope-grid">
+          <article class="hope-card">
+            <h3>What Hope AI does for students</h3>
+            <p>
+              Hope AI guides students through planning instead of leaving them to stare at a blank page or a big, scary
+              “business plan” assignment.
+            </p>
+            <ul class="hope-list">
+              <li>• Turns scattered ideas into clear, student-friendly project statements.</li>
+              <li>• Suggests sections and questions a strong business plan should answer.</li>
+              <li>• Connects plans to real college and life costs to keep things grounded.</li>
+              <li>• Helps students think through time, energy, and school balance.</li>
+              <li>• Prepares students for conversations with teachers, counselors, and mentors.</li>
+            </ul>
+          </article>
 
-    <div class="why-grid">
-      <div class="why-item">
-        <h3>1. Real-World, Multi-Industry Expertise</h3>
-        <p>
-          Coxwise isn’t theory. It’s landscaping, food service, tutoring, leadership, ministry,
-          community programs, and business development—all built from the ground up. That diversity
-          gives you <strong>solutions that actually work in real life</strong>, not just on paper.
-        </p>
-      </div>
+          <article class="hope-card">
+            <h3>Hope AI + Coxwise coaching</h3>
+            <p>
+              Hope AI handles the structure and ideas; Coxwise handles the coaching, accountability, and heart.
+            </p>
+            <ul class="hope-list">
+              <li>• Use Hope AI to draft and refine your plan.</li>
+              <li>• Work with Coxwise to practice presenting it with confidence.</li>
+              <li>• Prepare for pitch nights, college essays that talk about your work, or youth entrepreneurship programs.</li>
+              <li>• Build habits of planning, reflection, and ownership that last beyond graduation.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-      <div class="why-item">
-        <h3>2. A Legacy-Driven Approach</h3>
-        <p>
-          Most companies chase clients. Coxwise builds
-          <strong>generational systems</strong>—trusts, structures, strategies, and pathways that
-          help families create long-term stability and impact.
-        </p>
-      </div>
+      <!-- PRICING -->
+      <section id="pricing">
+        <div class="section-heading">
+          <div class="section-kicker">Pricing</div>
+          <h2 class="section-title">Support levels for students, families, and schools.</h2>
+          <p class="section-subtitle">
+            Start with light guidance or step into deeper, hands-on planning. All options are designed to respect student
+            time, energy, and budgets.
+          </p>
+        </div>
 
-      <div class="why-item">
-        <h3>3. Community at the Center</h3>
-        <p>
-          While other firms focus on profits, Coxwise focuses on <strong>people</strong>—students,
-          families, entrepreneurs, at-risk youth, and underserved communities. Coxwise is built to
-          uplift, empower, and create opportunity.
-        </p>
-      </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <div class="price-name">Student Starter</div>
+            <div class="price-amount">$9<span>/month</span></div>
+            <div class="price-tagline">For students exploring ideas and college costs.</div>
+            <ul class="price-list">
+              <li>• Hope AI student idea intake</li>
+              <li>• Simple business plan outline</li>
+              <li>• College cost & income planning prompts</li>
+            </ul>
+            <a href="#contact" class="btn-ghost" style="width:100%;justify-content:center;">Start with Student Starter</a>
+          </article>
 
-      <div class="why-item">
-        <h3>4. Personalized Guidance, Not Cookie-Cutter Templates</h3>
-        <p>
-          Every client gets one-on-one attention, clear steps, tailored strategies, accountability,
-          and honest feedback. No copy-paste. No vague advice.
-          <strong>Everything is customized.</strong>
-        </p>
-      </div>
+          <article class="price-card highlight">
+            <div class="price-tag">Best for most families</div>
+            <div class="price-name">Pathway Builder</div>
+            <div class="price-amount">$29<span>/month</span></div>
+            <div class="price-tagline">For students & families actively planning how to pay for school.</div>
+            <ul class="price-list">
+              <li>• Full Hope AI college & business planning support</li>
+              <li>• Student business plan coaching templates</li>
+              <li>• Email check-ins & planning guidance</li>
+            </ul>
+            <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;">Apply for Pathway Builder</a>
+          </article>
 
-      <div class="why-item">
-        <h3>5. The Coxwise Promise</h3>
-        <p>
-          Coxwise delivers <strong>Clarity</strong> (so you know what to do next),
-          <strong>Confidence</strong> (so you can move with power),
-          <strong>Culture</strong> (so your brand feels like you), and
-          <strong>Community</strong> (so you’re never doing it alone).
-        </p>
-      </div>
+          <article class="price-card">
+            <div class="price-name">Schools & Programs</div>
+            <div class="price-amount">Let’s talk<span></span></div>
+            <div class="price-tagline">For schools, academies, and youth programs.</div>
+            <ul class="price-list">
+              <li>• Custom workshops & planning tracks</li>
+              <li>• Student business plan labs</li>
+              <li>• Staff & mentor training with Coxwise</li>
+            </ul>
+            <a href="#contact" class="btn-ghost" style="width:100%;justify-content:center;">Discuss a school partnership</a>
+          </article>
+        </div>
+      </section>
 
-      <div class="why-item">
-        <h3>6. Built From a Story, Not a Corporation</h3>
-        <p>
-          Coxwise reflects a real journey—the grind, the discipline, the leadership, the sacrifices,
-          the lessons, and the victories. It’s not just a business.
-          <strong>It’s a mission. It’s a lifestyle. It’s a movement.</strong>
-        </p>
+      <!-- ABOUT + CONTACT -->
+      <section id="about">
+        <div class="section-heading">
+          <div class="section-kicker">About Coxwise</div>
+          <h2 class="section-title">Helping students build plans, not just fill out forms.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Coxwise Diversified Venture Management was created by educator and founder Paul J. R. Cox Sr. to give students
+              and families a clearer way to think about college, money, and opportunity.
+            </p>
+            <p>
+              After years in the classroom and in the community, Paul saw the same pattern: students with talent and drive,
+              parents with concern and questions, and very few spaces where everyone could talk honestly about both education
+              and income in the same conversation.
+            </p>
+            <p>
+              Coxwise exists to connect those dots. We use Hope AI, coaching, and planning tools to help young people build
+              business plans and income strategies that support their education instead of fighting against it.
+            </p>
+          </div>
+
+          <div id="contact" class="contact-card">
+            <div class="section-kicker">Contact</div>
+            <h3 style="margin-bottom:0.5rem;">Ready to talk about college & business planning?</h3>
+
+            <div class="contact-row">
+              <div class="contact-label">How to start</div>
+              <div class="contact-value">
+                Use the Coxwise chat (bottom-right) or send a message through the site with a few quick details.
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-label">Share this in your message</div>
+              <div class="contact-value">
+                • Student grade level or year in college<br />
+                • What school(s) you’re considering or attending<br />
+                • Your biggest question about paying for college right now<br />
+                • Any business, side hustle, or program idea you’re thinking about
+              </div>
+            </div>
+
+            <div class="contact-note">
+              Coxwise will reply with suggested next steps, possible service options, and how Hope AI can support your
+              planning and learning—not replace it.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Coxwise Diversified Venture Management. All rights reserved.</div>
+        <div class="footer-links">
+          <span>Powered by Hope AI.</span>
+          <span>Built for students, families, and schools planning for college.</span>
+        </div>
       </div>
-    </div>
+    </footer>
   </div>
-</section
-
-    <!-- SERVICES -->
-    <section id="services" class="section section-alt">
-      <div class="container">
-        <h2>Services</h2>
-        <p class="section-intro">
-          Every engagement begins with a paid strategy consultation. From there, we can move into custom packages
-          focused on structure, growth, or ongoing advisory support.
-        </p>
-
-        <div class="cards-grid">
-          <article class="card">
-            <h3>Idea Clarity & Feasibility Session</h3>
-            <p>
-              For early-stage ideas or side hustles that need honest feedback, structure, and a realistic path forward.
-            </p>
-            <ul class="card-list">
-              <li>Clarify your idea, target audience, and value</li>
-              <li>Identify key risks and blind spots</li>
-              <li>Define a 60–90 day execution focus</li>
-            </ul>
-            <p class="price">Investment: <strong>$150</strong> (60–90 minutes)</p>
-          </article>
-
-          <article class="card">
-            <h3>Venture Structure & Strategy</h3>
-            <p>
-              For active or about-to-launch ventures that need clearer systems, revenue design, and operational discipline.
-            </p>
-            <ul class="card-list">
-              <li>Business model & offer refinement</li>
-              <li>Basic systems & workflow mapping</li>
-              <li>3–6 month strategic action plan</li>
-            </ul>
-            <p class="price">Custom flat fee based on scope</p>
-          </article>
-
-          <article class="card">
-            <h3>Ongoing Advisory & Accountability</h3>
-            <p>
-              For committed builders who want consistent support as they grow, adjust, and execute in real time.
-            </p>
-            <ul class="card-list">
-              <li>Monthly or bi-weekly strategy sessions</li>
-              <li>Progress reviews & course corrections</li>
-              <li>Priority access for check-ins</li>
-            </ul>
-            <p class="price">Retainer-based, tailored to your needs</p>
-          </article>
-        </div>
-      </div>
-      
-<section id="business-matchmaking" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
-  <h2 style="font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">
-    Business Matchmaking & Strategic Venture Consulting
-  </h2>
-
-  <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
-    At <strong>Coxwise Consulting</strong>, we get paid to do what we do best—
-    <strong>connect the right people, at the right time, for the right opportunity</strong>.
-    If you need partners, investors, clients, suppliers, or collaborators, we act as your
-    <strong>business matchmaker</strong> and <strong>deal facilitator</strong>, helping you build real relationships
-    that turn into real results.
-  </p>
-
-  <h3 style="font-size: 1.25rem; margin-top: 20px; margin-bottom: 10px;">What We Do</h3>
-  <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.6;">
-    <li><strong>Business Matchmaking</strong> – We introduce entrepreneurs, business owners, and organizations who can benefit from working together.</li>
-    <li><strong>Strategic Venture Consulting</strong> – We help you shape the deal: roles, expectations, profit-sharing, and next steps.</li>
-    <li><strong>Partnership & Collaboration Setup</strong> – From joint ventures to referral agreements, we help structure win–win relationships.</li>
-    <li><strong>Deal Facilitation</strong> – We stay involved to keep communication clear and maintain momentum.</li>
-  </ul>
-
-  <h3 style="font-size: 1.25rem; margin-top: 20px; margin-bottom: 10px;">Who This Is For</h3>
-  <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.6;">
-    <li>Entrepreneurs with great ideas who need partners or resources</li>
-    <li>Small businesses looking for new clients, contracts, or collaborations</li>
-    <li>Investors seeking real opportunities with real people</li>
-    <li>Community leaders and organizations wanting to build strategic alliances</li>
-  </ul>
-
-  <h3 style="font-size: 1.25rem; margin-top: 20px; margin-bottom: 10px;">How We Get Paid</h3>
-  <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 10px;">
-    We keep it simple and transparent:
-  </p>
-  <ul style="margin-left: 20px; margin-bottom: 20px; line-height: 1.6;">
-    <li><strong>Intro Fee (Finder’s Fee):</strong> A flat or percentage-based fee when a connection we make leads to paid business.</li>
-    <li><strong>Retainer or Project Fee:</strong> For clients who want ongoing connection-building and deal support.</li>
-    <li><strong>Success-Based Options:</strong> In some cases, we can structure fees based on the success or size of the deal.</li>
-  </ul>
-
-  <p style="font-style: italic; margin-bottom: 25px;">
-    You’re not just paying for a meeting — you’re investing in the right connection.
-  </p>
-
-  <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <a href="#contact" 
-       style="padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #000; font-weight: bold;">
-      Schedule a Matchmaking Session
-    </a>
-    <a href="#contact" 
-       style="padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #555;">
-      Contact Coxwise Consulting
-    </a>
-  </div>
-
-    </section>
-
-    <!-- CONSULTATION PAYMENT / BOOKING -->
-    <section id="payment" class="section">
-      <div class="container">
-        <h2>Consultation Booking & Payment</h2>
-        <p class="section-intro">
-          All consultations are confirmed after payment is received. Use the information below to submit your payment,
-          then complete the Intake Form so Coxwise can prepare for your session.
-        </p>
-
-        <div class="cards-grid">
-          <article class="card">
-            <h3>Standard Strategy Consultation</h3>
-            <p>
-              A focused 60–90 minute session designed to clarify your idea, identify gaps, and map out your next steps.
-            </p>
-            <ul class="card-list">
-              <li>Review of your Intake Form</li>
-              <li>Live strategy conversation (virtual or in person where applicable)</li>
-              <li>Written summary of key recommendations</li>
-            </ul>
-            <p class="price"><strong>$150</strong> per session</p>
-          </article>
-
-          <article class="card">
-            <h3>How to Pay</h3>
-            <p>Use the following method to submit your consultation payment:</p>
-            <ul class="card-list">
-              <li><strong>Zelle:</strong> 239-810-6612</li>
-              <li><strong>Name:</strong> Paul J.R. Cox Sr.</li>
-            </ul>
-            <p class="note">
-              Please include your full name and “Consultation” in the Zelle memo.
-              After payment is submitted, complete the Intake Form below and you will
-              be contacted to schedule your session.
-            </p>
-          </article>
-        </div>
-
-        <div class="cta-row">
-          <a href="#intake" class="btn primary">Complete Intake Form</a>
-          <a href="#contact" class="btn outline">Ask a Question First</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTAKE FORM -->
-    <section id="intake" class="section section-alt">
-      <div class="container">
-        <h2>Business Idea Intake Form</h2>
-        <p class="section-intro">
-          This form helps Coxwise understand where you are, what you’re building, and how we can best support you.
-          Completing this form does not obligate either party to a long-term engagement.
-        </p>
-
-        <form class="form-card" action="mailto:coxwise@outlook.com" method="post" enctype="text/plain">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name*</label>
-              <input type="text" id="name" name="Name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email*</label>
-              <input type="email" id="email" name="Email" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone*</label>
-              <input type="tel" id="phone" name="Phone" required />
-            </div>
-            <div class="form-group">
-              <label for="location">City / State</label>
-              <input type="text" id="location" name="Location" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="stage">What stage is your idea or business in?*</label>
-            <select id="stage" name="Stage" required>
-              <option value="" disabled selected>Select one</option>
-              <option value="idea-only">Idea only – no business formed yet</option>
-              <option value="side-hustle">Side hustle – part-time income</option>
-              <option value="full-business">Active business – full operations</option>
-              <option value="restructure">Existing business – needs restructuring</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="summary">Briefly describe your idea or current venture*</label>
-            <textarea id="summary" name="Idea Summary" rows="4" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="goals">Top 3 goals for the next 6–12 months*</label>
-            <textarea id="goals" name="Goals" rows="4" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="challenges">Biggest challenges or roadblocks right now*</label>
-            <textarea id="challenges" name="Challenges" rows="4" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="budget">What budget have you set aside for strategy & consulting?*</label>
-            <select id="budget" name="Budget" required>
-              <option value="" disabled selected>Select one</option>
-              <option value="0-150">$0 – $150 (one-time session)</option>
-              <option value="150-500">$150 – $500</option>
-              <option value="500-1500">$500 – $1,500</option>
-              <option value="1500-plus">$1,500+</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="other">Anything else you’d like Coxwise to know?</label>
-            <textarea id="other" name="Additional Notes" rows="3"></textarea>
-          </div>
-
-          <button type="submit" class="btn primary full">Send Intake Form</button>
-          <p class="note small">
-            After you submit, Coxwise will review your details and respond by email with next steps and scheduling options.
-          </p>
-        </form>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container split">
-        <div>
-          <h2>Contact</h2>
-          <p>
-            For consultation requests, collaboration, speaking engagements, or general questions,
-            use the form or contact information below.
-          </p>
-          <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto: oxwise@outlook.com">coxwise@outlook.com</a></li>
-            <li><strong>Phone:</strong> <a href="tel:+12398106612">239-810-6612</a></li>
-            <li><strong>Location:</strong> Southwest Florida & Virtual Clients Nationwide</li>
-          </ul>
-        </div>
-        <div>
-          <form class="form-card" action="mailto:pcox.pls@outlook.com" method="post" enctype="text/plain">
-            <div class="form-group">
-              <label for="c-name">Name*</label>
-              <input type="text" id="c-name" name="Name" required />
-            </div>
-            <div class="form-group">
-              <label for="c-email">Email*</label>
-              <input type="email" id="c-email" name="Email" required />
-            </div>
-            <div class="form-group">
-              <label for="c-message">How can Coxwise support you?*</label>
-              <textarea id="c-message" name="Message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn primary full">Send Message</button>
-            <p class="note small">
-              Please allow 1–3 business days for a response. For time-sensitive matters, call or text after submitting.
-            </p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Coxwise Diversified Venture Management. All rights reserved.</p>
-      <p class="footer-subtext">Strategy. Structure. Accountability for serious builders.</p>
-    </div>
-  </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
