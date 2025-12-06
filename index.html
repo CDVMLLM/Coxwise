@@ -148,6 +148,49 @@
       box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
     }
 
+    
+<!-- COXWISE AI BUSINESS SOLUTIONS CHAT -->
+      <section id="coxwise-ai-chat">
+        <div class="section-heading">
+          <div class="section-kicker">Coxwise AI Business Solutions</div>
+          <h2 class="section-title">Business Planning for Sustainable Financial Success</h2>
+          <p class="section-subtitle">
+            Ask Coxwise AI Business Solutions about college funding, sustainable “forever businesses,”
+            and multiple streams of income. Get clear, practical guidance—not shortcuts.
+          </p>
+        </div>
+
+        <div class="ai-chat-wrapper">
+          <div class="ai-chat-window" id="ai-chat-window">
+            <div class="ai-chat-message ai-chat-message--bot">
+              <div class="ai-chat-label">Coxwise AI</div>
+              <div class="ai-chat-bubble">
+                Hey, I’m Coxwise AI Business Solutions. Tell me about your idea, your college goals,
+                or the income you’d like to create, and we’ll build from there.
+              </div>
+            </div>
+          </div>
+
+          <form class="ai-chat-input-row" id="ai-chat-form">
+            <input
+              id="ai-chat-input"
+              class="ai-chat-input"
+              type="text"
+              placeholder="Ask Coxwise AI about your idea or college plan..."
+              autocomplete="off"
+            />
+            <button type="submit" class="ai-chat-send-btn" id="ai-chat-send-btn">
+              Send
+            </button>
+          </form>
+
+          <p class="ai-chat-note">
+            Responses are for educational planning and business idea support only. Coxwise AI does not provide legal,
+            tax, or investment advice.
+          </p>
+        </div>
+      </section>
+
     main {
       flex: 1;
     }
@@ -680,6 +723,106 @@
       gap: 0.9rem;
       flex-wrap: wrap;
     }
+
+    
+/* Coxwise AI chat styles */
+    .ai-chat-wrapper {
+      background: #020617;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1rem;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.7);
+    }
+
+    .ai-chat-window {
+      max-height: 340px;
+      overflow-y: auto;
+      padding: 0.5rem;
+      margin-bottom: 0.75rem;
+      background: #020617;
+      border-radius: 14px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .ai-chat-message {
+      margin-bottom: 0.5rem;
+      max-width: 80%;
+    }
+
+    .ai-chat-message--user {
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .ai-chat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.1rem;
+    }
+
+    .ai-chat-bubble {
+      display: inline-block;
+      padding: 0.55rem 0.8rem;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #e5e7eb;
+      background: #111827;
+    }
+
+    .ai-chat-message--user .ai-chat-bubble {
+      background: linear-gradient(to right, #4f46e5, #22c55e);
+      color: white;
+    }
+
+    .ai-chat-input-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .ai-chat-input {
+      flex: 1;
+      background: #020617;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.55rem 0.9rem;
+      color: #e5e7eb;
+      font-size: 0.86rem;
+      outline: none;
+    }
+
+    .ai-chat-input::placeholder {
+      color: #6b7280;
+    }
+
+    .ai-chat-send-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #22c55e;
+      color: #020617;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-chat-send-btn[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .ai-chat-note {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 0.2rem;
+    }
   </style>
 
   <!-- Crisp Chat: Coxwise Consulting Chatbot -->
@@ -1077,8 +1220,78 @@
   </div>
 
   <script>
+    <script>
     // Set year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Coxwise AI Business Solutions front-end integration
+    (function () {
+      const form = document.getElementById("ai-chat-form");
+      const input = document.getElementById("ai-chat-input");
+      const windowEl = document.getElementById("ai-chat-window");
+      const sendBtn = document.getElementById("ai-chat-send-btn");
+
+      if (!form || !input || !windowEl || !sendBtn) return;
+
+      const API_URL = "https://YOUR-BACKEND-URL/api/coxwise-ai"; // <-- CHANGE THIS
+
+      function appendMessage(text, from) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "ai-chat-message " + (from === "user" ? "ai-chat-message--user" : "ai-chat-message--bot");
+
+        const label = document.createElement("div");
+        label.className = "ai-chat-label";
+        label.textContent = from === "user" ? "You" : "Coxwise AI";
+
+        const bubble = document.createElement("div");
+        bubble.className = "ai-chat-bubble";
+        bubble.textContent = text;
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(bubble);
+        windowEl.appendChild(wrapper);
+        windowEl.scrollTop = windowEl.scrollHeight;
+      }
+
+      async function sendToCoxwiseAI(message) {
+        sendBtn.disabled = true;
+
+        try {
+          const res = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ message }),
+          });
+
+          const data = await res.json();
+
+          if (!res.ok || data.error) {
+            throw new Error(data.error || "Something went wrong");
+          }
+
+          appendMessage(data.reply || "I’m here with you. Let’s keep planning together.", "bot");
+        } catch (err) {
+          appendMessage("I ran into a problem reaching the Coxwise AI server. Please try again soon.", "bot");
+        } finally {
+          sendBtn.disabled = false;
+        }
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const text = (input.value || "").trim();
+        if (!text) return;
+
+        appendMessage(text, "user");
+        input.value = "";
+        sendToCoxwiseAI(text);
+      });
+    })();
   </script>
 </body>
 </html>
+
+    
+  
