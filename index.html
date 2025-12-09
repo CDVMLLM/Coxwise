@@ -33,6 +33,90 @@
       padding: 0;
     }
 
+    
+<style>
+#coxwise-chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #22c55e;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#coxwise-chat-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 280px;
+    background: #020617;
+    border: 1px solid #4b5563;
+    border-radius: 12px;
+    padding: 12px;
+    display: none;
+}
+
+#coxwise-messages {
+    height: 200px;
+    overflow-y: auto;
+    background: #0f172a;
+    padding: 10px;
+    border-radius: 8px;
+    color: #e5e7eb;
+    margin-bottom: 8px;
+}
+
+#coxwise-input {
+    width: 70%;
+    padding: 6px;
+    border-radius: 6px;
+    border: none;
+}
+
+#coxwise-send {
+    width: 25%;
+    padding: 6px;
+    background: #22c55e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+</style>
+
+  
+<script>
+// Toggle chat visibility
+document.getElementById("coxwise-chat-toggle").onclick = function() {
+  const box = document.getElementById("coxwise-chat-box");
+  box.style.display = box.style.display === "block" ? "none" : "block";
+};
+
+// Send message to Coxwise AI API
+document.getElementById("coxwise-send").onclick = async function() {
+  const input = document.getElementById("coxwise-input");
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  const messages = document.getElementById("coxwise-messages");
+  messages.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+
+  input.value = "";
+
+  const response = await fetch("https://YOUR-LARAVEL-URL/api/coxwise-ai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: msg })
+  });
+
+  const data = await response.json();
+  messages.innerHTML += `<div><strong>Coxwise AI:</strong> ${data.reply}</div>`;
+};
+</script>
     body {
 
       
