@@ -1103,8 +1103,8 @@
         </div>
       </section>
 
-      <!-- HOPE AI -->
-      <section id="hope-ai">
+      <!-- Deliverance AI -->
+      <section id="deliverance ai ">
         <div class="section-heading">
           <div class="section-kicker">Hope AI</div>
           <h2 class="section-title">Helping students think, plan, and prepare.</h2>
@@ -1114,14 +1114,14 @@
           </p>
         </div>
 
-        <div class="hope-grid">
+        <div class="deliverance-grid">
           <article class="hope-card">
-            <h3>What Hope AI does for students</h3>
+            <h3>What Deliverance AI does for students</h3>
             <p>
-              Hope AI guides students through planning instead of leaving them to stare at a blank page or a big, scary
+              Deliverance AI guides students through planning instead of leaving them to stare at a blank page or a big, scary
               “business plan” assignment.
             </p>
-            <ul class="hope-list">
+            <ul class="deliverance-list">
               <li>• Turns scattered ideas into clear, student-friendly project statements.</li>
               <li>• Suggests sections and questions a strong business plan should answer.</li>
               <li>• Connects plans to real college and life costs to keep things grounded.</li>
@@ -1130,13 +1130,13 @@
             </ul>
           </article>
 
-          <article class="hope-card">
-            <h3>Hope AI + Coxwise coaching</h3>
+          <article class="deliverance-card">
+            <h3>Deliverance AI + Coxwise coaching</h3>
             <p>
-              Hope AI handles the structure and ideas; Coxwise handles the coaching, accountability, and heart.
+              Deliverance AI handles the structure and ideas; Coxwise handles the coaching, accountability, and heart.
             </p>
-            <ul class="hope-list">
-              <li>• Use Hope AI to draft and refine your plan.</li>
+            <ul class="deliverance-list">
+              <li>• Use Deliverance AI to draft and refine your plan.</li>
               <li>• Work with Coxwise to practice presenting it with confidence.</li>
               <li>• Prepare for pitch nights, college essays that talk about your work, or youth entrepreneurship programs.</li>
               <li>• Build habits of planning, reflection, and ownership that last beyond graduation.</li>
@@ -1273,9 +1273,180 @@
   <!-- Scripts -->
   <script>
     // Set year in footer
-    document.getElementById("year").textContent = new Date().getFullYear();
+
+<script>
+  // ========== BASIC PAGE SETUP ==========
+  // Set year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // ========== OPENAI DIRECT CALL (NO CUSTOM SERVER) ==========
+
+  // ⚠️ IMPORTANT:
+  // 1. Get your API key from https://platform.openai.com/api-keys
+  // 2. Paste it below BETWEEN the quotation marks.
+  // 3. NEVER post this file publicly with your real key inside.
+  const OPENAI_API_KEY = "YOUR_OPENAI_API_KEY_HERE";
+
+  // Short Coxwise AI system prompt (you can tweak this anytime)
+  const COXWISE_SYSTEM_PROMPT = `
+You are Coxwise AI Business Solutions, created by Coxwise Diversified Venture Management.
+
+Your job:
+- Help students and families plan for college costs using business planning and side hustles.
+- Help users think through sustainable "forever businesses" and multiple streams of income.
+- Ask smart questions about their goals, time, skills, and budget.
+- Give clear, practical steps in plain language.
+- You do NOT give legal, tax, or investment advice—only educational planning guidance.
+Keep answers focused, encouraging, and easy to act on.
+`.trim();
+
+  /**
+   * Call OpenAI Responses API directly from the browser.
+   * For demo and personal use only (your key is exposed to anyone who can see the source).
+   */
+  async function callCoxwiseAI(message) {
+    if (!OPENAI_API_KEY || OPENAI_API_KEY === "YOUR_OPENAI_API_KEY_HERE") {
+      console.warn("You must set OPENAI_API_KEY for Coxwise AI to work.");
+      return "Coxwise AI is not configured yet. Please add your OpenAI API key in the HTML file.";
+    }
+
+    try {
+      const res = await fetch("https://api.openai.com/v1/responses", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + OPENAI_API_KEY
+        },
+        body: JSON.stringify({
+          model: "gpt-4.1-mini", // or another model you prefer
+          input: [
+            { role: "system", content: COXWISE_SYSTEM_PROMPT },
+            { role: "user", content: message }
+          ]
+        })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error("OpenAI error:", data);
+        throw new Error(data.error?.message || "Error calling OpenAI");
+      }
+
+      // Responses API: data.output[0].content[0].text.value is the main text
+      const reply =
+        data.output?.[0]?.content?.[0]?.text?.value ||
+        "I’m here and ready to help you think through your plan.";
+
+      return reply.trim();
+    } catch (err) {
+      console.error(err);
+      return "I ran into a problem reaching the Coxwise AI service. Please try again in a moment.";
+    }
+  }
+
+  // ========== ON-PAGE COXWISE AI CHAT (SECTION) ==========
+  (function () {
+    const form = document.getElementById("ai-chat-form");
+    const input = document.getElementById("ai-chat-input");
+    const windowEl = document.getElementById("ai-chat-window");
+    const sendBtn = document.getElementById("ai-chat-send-btn");
+
+    if (!form || !input || !windowEl || !sendBtn) return;
+
+    function appendSectionMessage(text, from) {
+      const wrapper = document.createElement("div");
+      wrapper.className =
+        "ai-chat-message " +
+        (from === "user" ? "ai-chat-message--user" : "ai-chat-message--bot");
+
+      const label = document.createElement("div");
+      label.className = "ai-chat-label";
+      label.textContent = from === "user" ? "You" : "Coxwise AI";
+
+      const bubble = document.createElement("div");
+      bubble.className = "ai-chat-bubble";
+      bubble.textContent = text;
+
+      wrapper.appendChild(label);
+      wrapper.appendChild(bubble);
+      windowEl.appendChild(wrapper);
+      windowEl.scrollTop = windowEl.scrollHeight;
+    }
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const text = (input.value || "").trim();
+      if (!text) return;
+
+      appendSectionMessage(text, "user");
+      input.value = "";
+      sendBtn.disabled = true;
+
+      const reply = await callCoxwiseAI(text);
+      appendSectionMessage(reply, "bot");
+
+      sendBtn.disabled = false;
+    });
+  })();
+
+  // ========== FLOATING COXWISE AI WIDGET (BOTTOM-RIGHT) ==========
+  (function () {
+    const toggle = document.getElementById("coxwise-chat-toggle");
+    const box = document.getElementById("coxwise-chat-box");
+    const messages = document.getElementById("coxwise-messages");
+    const input = document.getElementById("coxwise-input");
+    const sendBtn = document.getElementById("coxwise-send");
+
+    if (!toggle || !box || !messages || !input || !sendBtn) return;
+
+    toggle.addEventListener("click", () => {
+      box.style.display = box.style.display === "block" ? "none" : "block";
+
+      // Optional: send a welcome message the first time
+      if (!messages.dataset.welcomed) {
+        appendWidgetMessage(
+          "Coxwise AI",
+          "Hey, I’m Coxwise AI Business Solutions. Tell me about your idea or college plan and we’ll build from there."
+        );
+        messages.dataset.welcomed = "true";
+      }
+    });
+
+    function appendWidgetMessage(sender, text) {
+      const div = document.createElement("div");
+      div.style.marginBottom = "6px";
+      div.innerHTML = "<strong>" + sender + ":</strong> " + text;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function handleSend() {
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      appendWidgetMessage("You", msg);
+      input.value = "";
+      sendBtn.disabled = true;
+
+      const reply = await callCoxwiseAI(msg);
+      appendWidgetMessage("Coxwise AI", reply);
+
+      sendBtn.disabled = false;
+    }
+
+    sendBtn.addEventListener("click", handleSend);
+
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        handleSend();
+      }
+    });
+  })();
 
     // Reusable API URL (CHANGE THIS to your real Laravel endpoint)
+    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
     const COXWISE_API_URL = "https://special-memory-pj4rwxxw5gvwfqpr.github.dev/api/coxwise-ai";
 
 
