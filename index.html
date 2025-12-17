@@ -892,17 +892,108 @@
           <a href="#contact">Contact</a>
         </nav>
 
-        <a
-  id="book-consult-link"
-  class="nav-cta"
-  href="mailto:ask.coxwise@outlook.com?subject=Exploratory%20Consultation%20%E2%80%93%20Business%20%26%20College%20Planning&body=Hello%20Coxwise%20Team%2C%0D%0A%0D%0AI%E2%80%99d%20like%20to%20schedule%20an%20exploratory%20consultation%20to%20discuss%20business%20planning%20and%20college%20saving%20programs.%0D%0A%0D%0APlease%20share%3A%0D%0A-%20Student%20grade%20level%20or%20year%20in%20college%3A%0D%0A-%20School(s)%20considered%20or%20attending%3A%0D%0A-%20Biggest%20question%20about%20paying%20for%20college%3A%0D%0A-%20Business%2Fside%20hustle%20idea%20I%E2%80%99m%20exploring%3A%0D%0A-%20Desired%20outcome%20from%20this%20consultation%3A%0D%0A%0D%0AThank%20you%2C%0D%0A%5BYour%20Name%5D"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <span class="dot"></span>
-  <span>Book a Consult</span>
-</a>
+        <a class="btn" href="/book-consult.html">BOOK A CONSULT</a>
         
+        <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Coxwise | Book a Consult</title>
+  <meta name="description" content="Request a Coxwise consultation for college & business planning." />
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#0b0f17;color:#eaf0ff}
+    .wrap{max-width:760px;margin:0 auto;padding:24px}
+    .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:18px}
+    h1{font-size:28px;margin:0 0 6px}
+    p{opacity:.9;line-height:1.4}
+    label{display:block;margin:14px 0 6px;font-weight:600}
+    input,select,textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.25);color:#fff}
+    textarea{min-height:110px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:640px){.row{grid-template-columns:1fr}}
+    .btn{margin-top:14px;width:100%;padding:12px 14px;border-radius:14px;border:0;background:#6c5ce7;color:#fff;font-weight:800;letter-spacing:.4px;cursor:pointer}
+    .small{font-size:12px;opacity:.75;margin-top:10px}
+    a{color:#b8c6ff}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Book a Consult</h1>
+      <p>Tell us what you’re working on and we’ll follow up within 24 hours.</p>
+
+      <!-- FormSubmit sends the form to your email without opening mail apps -->
+      <form action="https://formsubmit.co/ask.coxwise@outlook.com" method="POST">
+        <!-- FormSubmit options -->
+        <input type="hidden" name="_subject" value="Coxwise | New Consult Request" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <!-- Optional: redirect after submit (change to your domain path if needed) -->
+        <input type="hidden" name="_next" value="https://coxwise.com/thanks.html" />
+
+        <div class="row">
+          <div>
+            <label for="name">Full Name</label>
+            <input id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" placeholder="(239) 555-1234" />
+          </div>
+          <div>
+            <label for="focus">What do you need help with?</label>
+            <select id="focus" name="focus" required>
+              <option value="" selected disabled>Select one</option>
+              <option>College Savings / Funding Plan</option>
+              <option>Student Business Plan / Side Hustle</option>
+              <option>Both</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="message">Quick details</label>
+        <textarea id="message" name="message" placeholder="Tell us your goal, timeline, and what you’ve tried so far…" required></textarea>
+
+        <button class="btn" type="submit">SUBMIT REQUEST</button>
+
+        <div class="small">
+          Prefer email? <a href="mailto:ask.coxwise@outlook.com">ask.coxwise@outlook.com</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+        <!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thanks | Coxwise</title>
+  <style>
+    body{margin:0;font-family:system-ui;background:#0b0f17;color:#eaf0ff}
+    .wrap{max-width:760px;margin:0 auto;padding:40px}
+    a{color:#b8c6ff}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Thank you!</h1>
+    <p>Your request was submitted. We’ll follow up within 24 hours.</p>
+    <p><a href="/">Back to Coxwise</a></p>
+  </div>
+</body>
+</html>
         
       </div>
     </header>
