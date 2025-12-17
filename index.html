@@ -366,6 +366,38 @@
       color: #bbf7d0;
     }
 
+    <section id="start-planning">
+  <div class="section-heading">
+    <div class="section-kicker">Start Planning</div>
+    <h2 class="section-title">Get a quick plan draft from Deliverance AI</h2>
+    <p class="section-subtitle">Answer a few questions. Deliverance AI will generate a structured next-step plan.</p>
+  </div>
+
+  <div class="ai-chat-wrapper">
+    <form id="start-planning-form" style="display:grid; gap:10px;">
+      <input class="ai-chat-input" id="sp-grade" placeholder="Student grade level / year in college" />
+      <input class="ai-chat-input" id="sp-school" placeholder="School(s) considering / attending" />
+      <input class="ai-chat-input" id="sp-goal" placeholder="Main goal (tuition, books, housing, debt-free plan, etc.)" />
+      <input class="ai-chat-input" id="sp-income" placeholder="Any business / side hustle / program idea (optional)" />
+      <textarea class="ai-chat-input" id="sp-notes" rows="4" style="border-radius:14px; padding:12px;"
+        placeholder="Anything else we should know? (timeline, budget, challenges, strengths)"></textarea>
+
+      <button class="ai-chat-send-btn" id="sp-generate" type="submit">Generate Plan</button>
+    </form>
+
+    <div style="margin-top:14px;">
+      <div class="ai-chat-label">Deliverance AI Draft</div>
+      <div id="sp-output" class="ai-chat-window" style="max-height:none; min-height:140px;"></div>
+
+      <a id="sp-email" class="btn-primary" href="#" style="margin-top:10px; display:none; justify-content:center;">
+        Email this plan to Coxwise
+      </a>
+    </div>
+
+    <p class="ai-chat-note">Educational planning only. No legal, tax, or investment advice.</p>
+  </div>
+</section>
+    
     section {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -1346,19 +1378,77 @@ target="_blank" rel="noopener noreferrer"
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // ✅ Put your real Laravel endpoint here
-  const COXWISE_API_URL = "https://YOURDOMAIN.COM/api/deliverance-ai";
+ 
+    const DELIVERANCE_API_URL = "https://YOUR-LIVE-LARAVEL-DOMAIN.com/api/deliverance-ai"; // <-- update
 
-  // Toggle widget open/close
-  const toggle = document.getElementById("coxwise-chat-toggle");
-  const box = document.getElementById("coxwise-chat-box");
-  const messages = document.getElementById("coxwise-messages");
-  const input = document.getElementById("coxwise-input");
-  const sendBtn = document.getElementById("coxwise-send");
+function buildStartPlanningPrompt() {
+  const grade = document.getElementById("sp-grade").value.trim();
+  const school = document.getElementById("sp-school").value.trim();
+  const goal = document.getElementById("sp-goal").value.trim();
+  const income = document.getElementById("sp-income").value.trim();
+  const notes = document.getElementById("sp-notes").value.trim();
 
-  if (toggle && box && messages && input && sendBtn) {
-    toggle.addEventListener("click", () => {
-      box.style.display = box.style.display === "block" ? "none" : "block";
-    });
+  return `
+You are Deliverance AI for Coxwise. Create a practical plan.
+
+Student level: ${grade}
+School(s): ${school}
+Goal: ${goal}
+Business / income idea: ${income || "None provided"}
+Notes: ${notes || "None provided"}
+
+Output format:
+1) Quick Summary
+2) 5–7 Step Action Plan
+3) Business / income options (3 ideas)
+4) College savings / funding options (3 ideas)
+5) First 3 actions to do this week
+6) Questions Coxwise should ask in an exploratory consult
+`.trim();
+}
+
+async function callDeliveranceAI(message) {
+  const res = await fetch(DELIVERANCE_API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+  });
+
+  const data = await res.json();
+  if (!res.ok || data.error) throw new Error(data.error || "Request failed");
+  return (data.reply || "").trim();
+}
+
+(function () {
+  const form = document.getElementById("start-planning-form");
+  const output = document.getElementById("sp-output");
+  const emailBtn = document.getElementById("sp-email");
+
+  if (!form || !output || !emailBtn) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    output.textContent = "Generating your plan…";
+    emailBtn.style.display = "none";
+
+    try {
+      const prompt = buildStartPlanningPrompt();
+      const plan = await callDeliveranceAI(prompt);
+
+      output.textContent = plan;
+
+      const subject = encodeURIComponent("Coxwise — Start Planning (Deliverance AI Draft)");
+      const body = encodeURIComponent(
+        `Hello Coxwise Team,\n\nHere is my Deliverance AI draft plan:\n\n${plan}\n\nMy contact info:\nName:\nPhone:\n`
+      );
+
+      emailBtn.href = `mailto:ask.coxwise@outlook.com?subject=${subject}&body=${body}`;
+      emailBtn.style.display = "inline-flex";
+    } catch (err) {
+      output.textContent = "Could not reach Deliverance AI. Check API URL + CORS, then try again.";
+    }
+  });
+})();
 
    const COXWISE_API_URL = "https://YOUR-DELIVERANCE-WORKER.workers.dev";
     (function () {
