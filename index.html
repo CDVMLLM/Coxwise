@@ -859,10 +859,26 @@
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="nav-cta" onclick="document.querySelector('#contact')?.scrollIntoView({behavior:'smooth'})">
-          <span class="dot"></span>
-          <span>Book a consult</span>
-        </button>
+
+       function () {
+  const a = document.getElementById("book-consult-link");
+  if (!a) return;
+
+  a.addEventListener("click", () => {
+    // GA4 example:
+    if (typeof gtag === "function") {
+      gtag("event", "book_consult_click", { event_category: "engagement" });
+    }
+
+    // Plausible example:
+    if (typeof plausible === "function") {
+      plausible("BookConsult");
+    }
+  });
+})();
+        
+target="_blank" rel="noopener noreferrer"
+        </a>
       </div>
     </header>
 
@@ -1166,6 +1182,59 @@
               <li>• Simple business plan outline</li>
               <li>• College cost & income planning prompts</li>
             </ul>
+
+            <section id="start-planning">
+  <div class="section-heading">
+    <div class="section-kicker">Start Planning</div>
+    <h2 class="section-title">Get a personalized plan from Deliverance AI</h2>
+    <p class="section-subtitle">
+      Answer a few quick questions. Deliverance AI will return next steps for business + college savings.
+    </p>
+  </div>
+
+  <div class="contact-card">
+    <form id="planning-form">
+      <div class="contact-row">
+        <div class="contact-label">Student grade level / year</div>
+        <input class="ai-chat-input" id="pf-grade" placeholder="Example: 11th grade / Freshman in college" />
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-label">School(s)</div>
+        <input class="ai-chat-input" id="pf-schools" placeholder="Example: FGCU, FSW, etc." />
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-label">College cost concern</div>
+        <input class="ai-chat-input" id="pf-cost" placeholder="Example: tuition, books, housing, transportation" />
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-label">Business / side hustle idea</div>
+        <input class="ai-chat-input" id="pf-idea" placeholder="Example: lawn care, tutoring, cookies, reselling…" />
+      </div>
+
+      <div class="contact-row">
+        <div class="contact-label">Biggest question right now</div>
+        <input class="ai-chat-input" id="pf-question" placeholder="Example: how do I start with $0? how do I save monthly?" />
+      </div>
+
+      <div class="hero-actions" style="margin-top: 0.75rem;">
+        <button type="submit" class="btn-primary" id="pf-submit">Generate My Plan</button>
+        <a href="#contact" class="btn-ghost">Talk to Coxwise</a>
+      </div>
+    </form>
+
+    <div id="planning-result" style="margin-top: 1rem; display:none;">
+      <div class="contact-label">Deliverance AI Plan</div>
+      <div class="ai-chat-bubble" id="planning-result-text" style="display:block; max-width:100%;"></div>
+    </div>
+
+    <p class="contact-note">
+      Educational planning only — not legal, tax, or investment advice.
+    </p>
+  </div>
+</section>
             <a href="#contact" class="btn-ghost" style="width:100%;justify-content:center;">Start with Student Starter</a>
           </article>
 
@@ -1290,6 +1359,66 @@
     toggle.addEventListener("click", () => {
       box.style.display = box.style.display === "block" ? "none" : "block";
     });
+
+   const COXWISE_API_URL = "https://YOUR-DELIVERANCE-WORKER.workers.dev";
+    (function () {
+  const form = document.getElementById("planning-form");
+  const submitBtn = document.getElementById("pf-submit");
+  const resultWrap = document.getElementById("planning-result");
+  const resultText = document.getElementById("planning-result-text");
+
+  if (!form || !submitBtn || !resultWrap || !resultText) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const grade = document.getElementById("pf-grade")?.value?.trim() || "";
+    const schools = document.getElementById("pf-schools")?.value?.trim() || "";
+    const cost = document.getElementById("pf-cost")?.value?.trim() || "";
+    const idea = document.getElementById("pf-idea")?.value?.trim() || "";
+    const question = document.getElementById("pf-question")?.value?.trim() || "";
+
+    const message =
+`You are Deliverance AI for Coxwise. Create a clear plan with next steps.
+
+Student/year: ${grade}
+School(s): ${schools}
+Cost concern: ${cost}
+Business/side hustle idea: ${idea}
+Biggest question: ${question}
+
+Output format:
+1) Quick summary
+2) 3-step action plan (this week / this month / next 90 days)
+3) College savings strategy (simple, realistic)
+4) Business plan starter checklist
+5) 3 follow-up questions for the student/family`;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Generating...";
+
+    try {
+      const res = await fetch(COXWISE_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+      if (!res.ok || data.error) throw new Error(data.error || "Request failed");
+
+      resultText.textContent = data.reply || "Plan generated. Scroll up to view.";
+      resultWrap.style.display = "block";
+      resultWrap.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (err) {
+      resultText.textContent = "Could not reach Deliverance AI. Check API URL + CORS.";
+      resultWrap.style.display = "block";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Generate My Plan";
+    }
+  });
+})();
 
     function appendMsg(sender, text) {
       const div = document.createElement("div");
