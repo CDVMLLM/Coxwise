@@ -872,12 +872,10 @@
   </style>
 </head>
 
-  <title>Coxwise | Business Planning, College Funding & AI Strategy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="description" content="Coxwise helps students, families, and entrepreneurs build business plans, fund college, and grow with AI strategy. Book a consult today.">
+  
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
 <link rel="canonical" href="https://YOURDOMAIN.COM/">
@@ -969,9 +967,7 @@
           <a href="#contact">Contact</a>
         </nav>
 
-        <!doctype html>
-<html lang="en">
-<head>
+        
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Coxwise | Book a Consult</title>
@@ -1233,7 +1229,7 @@
       </section>
 
       <!-- Deliverance AI -->
-      <section id="deliverance ai">
+      <section id="deliverance-ai">
         <div class="section-heading">
           <div class="section-kicker">Deliverance AI</div>
           <h2 class="section-title">Helping students think, plan, and prepare.</h2>
@@ -1247,7 +1243,8 @@
           <article class="Deliverance-card">
             <h3>What Deliverance AI does for students</h3>
             <p>
-              Deliverance AI guides students through planning instead of leaving them to stare at a blank page or a big, scary
+              Deliverance AI guides st
+              udents through planning instead of leaving them to stare at a blank page or a big, scary
               “business plan” assignment.
             </p>
             <ul class="deliverance-list">
@@ -1445,6 +1442,19 @@
   </div>
 
   <!-- Floating Coxwise AI Widget -->
+  <script>
+  const toggle = document.getElementById("coxwise-chat-toggle");
+  const box = document.getElementById("coxwise-chat-box");
+  const messages = document.getElementById("coxwise-messages");
+  const input = document.getElementById("coxwise-input");
+  const sendBtn = document.getElementById("coxwise-send");
+
+  if (toggle && box) {
+    toggle.addEventListener("click", () => {
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    });
+  }
+</script>
   <div id="coxwise-chat-toggle">💬 Chat with Coxwise AI</div>
   <div id="coxwise-chat-box">
     <div id="coxwise-messages"></div>
@@ -1627,6 +1637,7 @@ Output format:
       input.value = "";
       sendMessage(msg);
     });
+    
 
     input.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
