@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta -->
+  <meta charset="UTF-8" />
+  <title>Coxwise AI Business School | 30 AI Building Sessions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Coxwise AI Business School is a subscription-based, self-paced school with 30 AI building sessions that teach students, families, and job seekers to use AI to build businesses and earn Coxwise AI certifications."
+  />
+  <meta
+    name="robots"
+    content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+  />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.coxwise.com/ai-school.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:title"
+    content="Coxwise AI Business School | 30 AI Building Sessions"
+  />
+  <meta
+    property="og:description"
+    content="Learn how to use AI to build real businesses, side hustles, and career opportunities in 30 guided AI building sessions. Self-paced, subscription-based, with Coxwise AI certifications."
+  />
+  <meta property="og:url" content="https://www.coxwise.com/ai-school.html" />
+  <meta
+    property="og:image"
+    content="https://www.coxwise.com/assets/og/coxwise-og.jpg"
+  />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Coxwise AI Business School | 30 AI Building Sessions"
+  />
+  <meta
+    name="twitter:description"
+    content="Self-paced AI school with 30 AI building sessions, business planning, and Coxwise AI certifications."
+  />
+  <meta
+    name="twitter:image"
+    content="https://www.coxwise.com/assets/og/coxwise-og.jpg"
+  />
+
+  <!-- Styles (matches your dark Coxwise look) -->
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.18);
+      --accent-strong: #22c55e;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --card: #111827;
+      --border-subtle: #1f2933;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 20px 45px rgba(0, 0, 0, 0.45);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 8, 22, 0.95),
+        rgba(5, 8, 22, 0.75),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 40%;
+      background: radial-gradient(
+        circle at 25% 25%,
+        #22c55e,
+        #4f46e5 55%,
+        #0ea5e9 100%
+      );
+      box-shadow: 0 0 22px rgba(56, 189, 248, 0.5);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    .brand-text strong {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+    }
+
+    .brand-text span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.6)
+      );
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.5);
+    }
+
+    .nav-cta span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .hero {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2rem;
+      }
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      margin-bottom: 1.1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-kicker span.badge {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #c7d2fe;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3vw + 1rem, 3.3rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span.accent {
+      background: linear-gradient(to right, #22c55e, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 30rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      padding: 0.7rem 1.4rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #4f46e5, #22c55e);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 50px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209, 213, 219, 0.9);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.2), transparent 55%), #020617;
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.6rem 1.45rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5b4fc;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: #cbd5f5;
+    }
+
+    .section-heading {
+      margin-bottom: 1.6rem;
+    }
+
+    .section-kicker {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+    }
+
+    .three-col-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      font-size: 0.86rem;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.2rem;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .price-card {
+      background: #020617;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 1.1rem;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.7);
+    }
+
+    .price-card.highlight {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4),
+        0 24px 60px rgba(21, 128, 61, 0.7);
+    }
+
+    .price-name {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 0.2rem;
+    }
+
+    .price-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #bbf7d0;
+      margin-bottom: 0.2rem;
+    }
+
+    .price-amount {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-amount span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .price-tagline {
+      font-size: 0.88rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .price-list {
+      list-style: none;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .price-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .curriculum-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .session-list-block {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem;
+      max-height: 480px;
+      overflow-y: auto;
+      font-size: 0.86rem;
+    }
+
+    .session-list-block h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .session-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .session-list li {
+      margin-bottom: 0.35rem;
+      color: var(--text-muted);
+    }
+
+    .session-list strong {
+      color: #e5e7eb;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      margin-top: 0.4rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 0.18rem 0.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.3rem 1.25rem 1.6rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      background: #020617;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="nav-inner">
+        <a href="/" class="brand">
+          <div class="brand-mark"></div>
+          <div class="brand-text">
+            <strong>COXWISE</strong>
+            <span>AI Business & College Planning</span>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="/">Home</a>
+          <a href="#curriculum">30 Sessions</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#who">Who it's for</a>
+        </nav>
+        <button
+          class="nav-cta"
+          onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'});"
+        >
+          <span class="dot"></span>
+          <span>Join the School</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div>
+          <div class="hero-kicker">
+            <span class="badge">Coxwise AI Business School</span>
+            <span>30 AI building sessions • self-paced • subscription-based</span>
+          </div>
+          <h1 class="hero-title">
+            Learn to <span class="accent">use AI to build businesses</span>
+            and earn Coxwise AI certifications in 30 guided sessions.
+          </h1>
+          <p class="hero-subtitle">
+            Coxwise AI Business School is a self-paced, subscription-based school
+            that teaches students, families, and job seekers how to use AI to build
+            real businesses, side hustles, and income plans they can use for school,
+            life, and work.
+          </p>
+          <div class="hero-actions">
+            <a href="#pricing" class="btn-primary">See subscription options</a>
+            <a href="#curriculum" class="btn-ghost">View all 30 AI sessions</a>
+          </div>
+          <p class="hero-note">
+            Learn from home, school, libraries, or employment centers — any place
+            you can open a browser and access Coxwise.
+          </p>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-tag">What you get inside</div>
+          <h3>30 AI building sessions. Real projects. Your pace.</h3>
+          <p>
+            Every session follows a simple pattern: learn, build with AI,
+            reflect, and save your work into a real portfolio or business plan.
+          </p>
+          <ul class="hero-card-list">
+            <li>• AI foundations, ethics, and prompting skills</li>
+            <li>• Business idea, customer, and offer design</li>
+            <li>• Content, branding, and marketing builds</li>
+            <li>• Capstone project you can show to schools, employers, or clients</li>
+          </ul>
+          <div class="hero-chip-row">
+            <span class="chip">Self-paced learning</span>
+            <span class="chip">30 guided builds</span>
+            <span class="chip">Coxwise AI certifications</span>
+            <span class="chip">Community & coaching add-ons</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- HOW THE SUBSCRIPTION SCHOOL WORKS -->
+      <section id="how">
+        <div class="section-heading">
+          <div class="section-kicker">How it works</div>
+          <h2 class="section-title">A self-paced AI school with structure, not pressure.</h2>
+          <p class="section-subtitle">
+            Coxwise AI Business School is built so students, parents, and adults can move at their
+            own pace while still having a clear path: 30 sessions, 3 certification levels, and
+            subscription plans that fit your budget.
+          </p>
+        </div>
+
+        <div class="three-col-grid">
+          <article class="card">
+            <h3>1. Subscribe & choose your path</h3>
+            <p>
+              Join as a student, family, or school. Set your focus:
+              college funding, side hustle, career change, or “learn AI for business.”
+            </p>
+            <div class="pill-row">
+              <span class="pill">Students & families</span>
+              <span class="pill">Job seekers</span>
+              <span class="pill">Adult learners</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>2. Work through 30 AI building sessions</h3>
+            <p>
+              Each session gives you a short lesson, ready-made prompts, and a build.
+              You always leave with something real: a plan, script, visual, or system.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Learn → Build → Reflect → Save</span>
+              <span class="pill">Portfolio-ready work</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>3. Earn Coxwise AI certifications</h3>
+            <p>
+              As you complete sessions and submit work, you unlock Coxwise badges:
+              Explorer, Builder, and AI Business Architect.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Show your skills</span>
+              <span class="pill">Resume & LinkedIn ready</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing">
+        <div class="section-heading">
+          <div class="section-kicker">Subscription</div>
+          <h2 class="section-title">Pick the AI school plan that fits you.</h2>
+          <p class="section-subtitle">
+            Start with a monthly subscription. Cancel any time. Upgrade or add more support as your
+            business and learning grow.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <div class="price-name">Student / Individual</div>
+            <div class="price-amount">$19<span>/month</span></div>
+            <div class="price-tagline">For students & solo learners.</div>
+            <ul class="price-list">
+              <li>• 30 AI building sessions (full curriculum)</li>
+              <li>• Access to Coxwise AI planning prompts</li>
+              <li>• Coxwise AI Explorer Certification track</li>
+              <li>• Downloadable templates & worksheets</li>
+            </ul>
+            <a href="mailto:ask.coxwise@outlook.com?subject=Join Coxwise AI Business School - Student Plan" class="btn-primary" style="width:100%;justify-content:center;">
+              Request Student Access
+            </a>
+          </article>
+
+          <article class="price-card highlight">
+            <div class="price-tag">Best for families</div>
+            <div class="price-name">Family / Pro</div>
+            <div class="price-amount">$39<span>/month</span></div>
+            <div class="price-tagline">For families & serious builders.</div>
+            <ul class="price-list">
+              <li>• Everything in Student plan</li>
+              <li>• 2–4 learners under one subscription</li>
+              <li>• Access to Explorer & Builder certifications</li>
+              <li>• Priority Q&A via email or scheduled office hours</li>
+            </ul>
+            <a href="mailto:ask.coxwise@outlook.com?subject=Join Coxwise AI Business School - Family Plan" class="btn-primary" style="width:100%;justify-content:center;">
+              Request Family / Pro Access
+            </a>
+          </article>
+
+          <article class="price-card">
+            <div class="price-name">Schools & Programs</div>
+            <div class="price-amount">Custom<span></span></div>
+            <div class="price-tagline">For schools, academies, & workforce sites.</div>
+            <ul class="price-list">
+              <li>• School / site license for students or clients</li>
+              <li>• Facilitator guide & implementation support</li>
+              <li>• Co-branded Coxwise certifications</li>
+              <li>• Options for live virtual workshops</li>
+            </ul>
+            <a href="mailto:ask.coxwise@outlook.com?subject=School or Program License - Coxwise AI Business School" class="btn-ghost" style="width:100%;justify-content:center;">
+              Discuss a School License
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- CURRICULUM: 30 AI BUILDING SESSIONS -->
+      <section id="curriculum">
+        <div class="section-heading">
+          <div class="section-kicker">Curriculum</div>
+          <h2 class="section-title">30 AI building sessions — from beginner to business builder.</h2>
+          <p class="section-subtitle">
+            These are the 30 sessions students work through at their own pace. Each session includes
+            teaching, prompts, and a build that becomes part of their portfolio or business plan.
+          </p>
+        </div>
+
+        <div class="curriculum-grid">
+          <div class="session-list-block">
+            <h3>Track 1: AI Foundations & Safety (1–6)</h3>
+            <ul class="session-list">
+              <li><strong>1.</strong> Intro to AI for Real Life & Business</li>
+              <li><strong>2.</strong> Prompting 101: Talking to AI Like a Partner</li>
+              <li><strong>3.</strong> Ethical & Safe AI Use for Students & Adults</li>
+              <li><strong>4.</strong> AI Tools Overview: Chat, Images, No-Code Automation</li>
+              <li><strong>5.</strong> Thinking Like a Problem Solver with AI</li>
+              <li><strong>6.</strong> From Ideas to Projects: Mapping Your 30-Session Path</li>
+            </ul>
+
+            <h3 style="margin-top:1rem;">Track 2: AI for Business & Income (7–14)</h3>
+            <ul class="session-list">
+              <li><strong>7.</strong> Finding a Business Idea You Can Actually Run</li>
+              <li><strong>8.</strong> Defining Your Customer with AI</li>
+              <li><strong>9.</strong> Offers & Services: What Exactly Are You Selling?</li>
+              <li><strong>10.</strong> Naming & Branding with AI</li>
+              <li><strong>11.</strong> Fast AI-Powered Market Research</li>
+              <li><strong>12.</strong> 30-Day AI Content Plan for Your Idea</li>
+              <li><strong>13.</strong> Writing Sales Copy with AI</li>
+              <li><strong>14.</strong> Creating Simple Funnels with AI</li>
+            </ul>
+          </div>
+
+          <div class="session-list-block">
+            <h3>Track 3: AI Skills & Tools (15–24)</h3>
+            <ul class="session-list">
+              <li><strong>15.</strong> AI for Writing: Blogs, Essays, & Scripts (Ethically)</li>
+              <li><strong>16.</strong> AI for Visuals: Logos, Social Posts, Simple Ads</li>
+              <li><strong>17.</strong> AI for Research & Learning New Skills</li>
+              <li><strong>18.</strong> AI for Resume & Job Readiness</li>
+              <li><strong>19.</strong> AI for No-Code Automation (Intro)</li>
+              <li><strong>20.</strong> AI for Customer Support & FAQs</li>
+              <li><strong>21.</strong> AI for Email Marketing & Follow-Up</li>
+              <li><strong>22.</strong> AI for Social Media Engagement</li>
+              <li><strong>23.</strong> AI for Product Creation (eBook, Mini Course, Checklist)</li>
+              <li><strong>24.</strong> AI for Data & Decisions: Simple Tracking & KPIs</li>
+            </ul>
+
+            <h3 style="margin-top:1rem;">Track 4: Capstone & Certifications (25–30)</h3>
+            <ul class="session-list">
+              <li><strong>25.</strong> Capstone Planning: What Will You Show the World?</li>
+              <li><strong>26.</strong> Building the Capstone: Product or Service</li>
+              <li><strong>27.</strong> Building the Capstone: Marketing & Content</li>
+              <li><strong>28.</strong> Building the Capstone: Systems & Support</li>
+              <li><strong>29.</strong> Presenting Your Work: Portfolio & Pitch</li>
+              <li><strong>30.</strong> Reflection & Next Steps: Your 90-Day Action Plan</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section id="certifications">
+        <div class="section-heading">
+          <div class="section-kicker">Coxwise Certifications</div>
+          <h2 class="section-title">Show the world what you built with AI.</h2>
+          <p class="section-subtitle">
+            Coxwise AI certifications give students, adults, and job seekers a way
+            to prove they’ve done more than just “ask AI questions” — they’ve built
+            real projects, documented their work, and can explain their process.
+          </p>
+        </div>
+
+        <div class="three-col-grid">
+          <article class="card">
+            <h3>Coxwise AI Explorer</h3>
+            <p>
+              For learners who complete the Foundations and early Business tracks.
+            </p>
+            <ul class="session-list">
+              <li>• Complete Sessions 1–10</li>
+              <li>• Submit one mini project (idea + customer + basic plan)</li>
+              <li>• Pass a short understanding check</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Beginner friendly</span>
+              <span class="badge">Great for students</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Coxwise AI Builder</h3>
+            <p>
+              For learners who build out a full AI-supported business or income idea.
+            </p>
+            <ul class="session-list">
+              <li>• Complete Sessions 1–20</li>
+              <li>• Submit one business or side hustle plan</li>
+              <li>• Show examples of AI-assisted content or systems</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Portfolio ready</span>
+              <span class="badge">Great for job seekers</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Coxwise AI Business Architect</h3>
+            <p>
+              For learners who complete all 30 sessions and present a capstone project.
+            </p>
+            <ul class="session-list">
+              <li>• Complete Sessions 1–30</li>
+              <li>• Submit capstone project & pitch</li>
+              <li>• Reflect on ethics, learning, and next steps</li>
+            </ul>
+            <div class="badge-row">
+              <span class="badge">Advanced</span>
+              <span class="badge">Leadership & entrepreneurship</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- WHO IT'S FOR -->
+      <section id="who">
+        <div class="section-heading">
+          <div class="section-kicker">Who it's for</div>
+          <h2 class="section-title">Built for students, families, job seekers, and schools.</h2>
+          <p class="section-subtitle">
+            Coxwise AI Business School is designed for real-life people with real responsibilities:
+            school, work, family, and bills. You don’t need to be “techy” to start — you just need
+            the willingness to learn and build over time.
+          </p>
+        </div>
+
+        <div class="three-col-grid">
+          <article class="card">
+            <h3>Students & Families</h3>
+            <p>
+              Use AI to explore business ideas and income plans that can help support
+              college, training, and early career years.
+            </p>
+            <div class="pill-row">
+              <span class="pill">High school & college</span>
+              <span class="pill">Parent–student planning</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Job Seekers & Career Changers</h3>
+            <p>
+              Build AI skills that translate to resumes, interviews, and freelance or
+              business projects employers actually understand.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Portfolio and projects</span>
+              <span class="pill">AI fluency for work</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Schools, Libraries & Employment Centers</h3>
+            <p>
+              Offer a structured AI learning path to your students, patrons, or clients —
+              with Coxwise handling the curriculum and certification.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Site licenses</span>
+              <span class="pill">Co-branded certificates</span>
+              <span class="pill">Community impact</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Coxwise Diversified Venture Management. All rights reserved.</div>
+        <div>Powered by Deliverance AI • Built for students, families, job seekers & schools.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set year in footer
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
