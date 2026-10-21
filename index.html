@@ -376,7 +376,7 @@
   </div>
 
   <div class="ai-chat-wrapper">
-    <form id="start-planning-form" style="display:grid; gap:10px;">
+    <form id="</style>" style="display:grid; gap:10px;">
       <input class="ai-chat-input" id="sp-grade" placeholder="Student grade level / year in college" />
       <input class="ai-chat-input" id="sp-school" placeholder="School(s) considering / attending" />
       <input class="ai-chat-input" id="sp-goal" placeholder="Main goal (tuition, books, housing, debt-free plan, etc.)" />
@@ -384,7 +384,11 @@
       <textarea class="ai-chat-input" id="sp-notes" rows="4" style="border-radius:14px; padding:12px;"
         placeholder="Anything else we should know? (timeline, budget, challenges, strengths)"></textarea>
 
-      <button class="ai-chat-send-btn" id="sp-generate" type="submit">Generate Plan</button>
+      <div class="cf-turnstile"
+    data-sitekey=YOUR_SITE_KEY"></div>
+    
+    
+    <button class="ai-chat-send-btn" id="sp-generate" type="submit">Generate Plan</button>
     </form>
 
     <div style="margin-top:14px;">
@@ -872,7 +876,10 @@
       font-weight: 600;
     }
   </style>
-</head>
+<script
+  src="htpps:challeges.cloudflare.com
+  /turnstile/v0/api.js" async defer></script>
+
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -947,7 +954,7 @@
   ]
 }
 </script>
-  
+</head>
 <body>
   <div class="page">
     <!-- Header / Nav -->
