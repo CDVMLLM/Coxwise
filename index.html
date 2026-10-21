@@ -1511,14 +1511,20 @@ async function callDeliveranceAI(message) {
   const res = await fetch(DELIVERANCE_API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message })
+    body: JSON.stringify({
+      message,
+      turnstileToken:
+        document.querySelector(
+          '#start-planning-form [name="cf-turnstile-response"]'
+        )?.value || ""
+    }),
   });
 
   const data = await res.json();
   if (!res.ok || data.error) throw new Error(data.error || "Request failed");
   return (data.reply || "").trim();
 }
-
+  
 (function () {
   const form = document.getElementById("start-planning-form");
   const output = document.getElementById("sp-output");
