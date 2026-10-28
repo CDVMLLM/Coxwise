@@ -1449,6 +1449,12 @@
   </div>
 
   <!-- Floating Coxwise AI Widget -->
+ <div id="coxwise-chat-toggle">💬 Chat with Coxwise AI</div>
+<div id="coxwise-chat-box">
+  <div id="coxwise-messages"></div>
+  <input id="coxwise-input" type="text" placeholder="Type your message..." />
+  <button id="coxwise-send">Send</button>
+</div>
   <script>
   const toggle = document.getElementById("coxwise-chat-toggle");
   const box = document.getElementById("coxwise-chat-box");
@@ -1462,12 +1468,7 @@
     });
   }
 </script>
-  <div id="coxwise-chat-toggle">💬 Chat with Coxwise AI</div>
-  <div id="coxwise-chat-box">
-    <div id="coxwise-messages"></div>
-    <input id="coxwise-input" type="text" placeholder="Type your message..." />
-    <button id="coxwise-send">Send</button>
-  </div>
+
  <!-- Scripts -->
   
   <script>
@@ -1477,7 +1478,7 @@
 
   // ✅ Put your real Laravel endpoint here
  
-    const DELIVERANCE_API_URL = "https://YOUR-LIVE-LARAVEL-DOMAIN.com/api/deliverance-ai"; // <-- update
+    const DELIVERANCE_API_URL = "https://coxwise-deliverance-ai.coxwise.workers.dev/api/deliverance-ai"; // <-- update
 
 function buildStartPlanningPrompt() {
   const grade = document.getElementById("sp-grade").value.trim();
@@ -1548,7 +1549,7 @@ async function callDeliveranceAI(message) {
   });
 })();
 
-   const COXWISE_API_URL = "https://YOUR-DELIVERANCE-WORKER.workers.dev";
+   const COXWISE_API_URL = "https://coxwise-deliverance-ai.coxwise.workers.dev/api/deliverance-ai";
     (function () {
   const form = document.getElementById("planning-form");
   const submitBtn = document.getElementById("pf-submit");
