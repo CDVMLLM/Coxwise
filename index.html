@@ -1590,10 +1590,17 @@ Output format:
 
     try {
       const res = await fetch(COXWISE_API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message })
-      });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    message,
+    turnstileToken: form.querySelector(
+      '[name="cf-turnstile-response"]'
+    )?.value || ""
+  })
+});
 
       const data = await res.json();
       if (!res.ok || data.error) throw new Error(data.error || "Request failed");
