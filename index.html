@@ -1589,6 +1589,13 @@ Output format:
     submitBtn.textContent = "Generating...";
 
     try {
+      const token = form.querySelector(
+  '[name="cf-turnstile-response"]'
+)?.value || "";
+
+console.log("Turnstile token present:", !!token);
+console.log("Turnstile token length:", token.length);
+
       const res = await fetch(COXWISE_API_URL, {
   method: "POST",
   headers: {
@@ -1596,9 +1603,7 @@ Output format:
   },
   body: JSON.stringify({
     message,
-    turnstileToken: form.querySelector(
-      '[name="cf-turnstile-response"]'
-    )?.value || ""
+    turnstileToken: token
   })
 });
 
