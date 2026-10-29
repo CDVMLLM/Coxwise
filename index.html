@@ -1665,7 +1665,16 @@ Output format:
         sendMessage(msg);
       }
     });
-  
+  } finally {
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Generate My Plan";
+
+  // Clear the previous Turnstile token.
+  // The next submission must use a fresh token.
+  if (window.turnstile) {
+    window.turnstile.reset();
+  }
+}
     (() => {
   const a = document.getElementById("book-consult-link");
   if (!a) return;
