@@ -1617,8 +1617,12 @@ console.log("Turnstile token length:", token.length);
       resultText.textContent = "Could not reach Deliverance AI. Check API URL + CORS.";
       resultWrap.style.display = "block";
     } finally {
-      submitBtn.disabled = false;
+        submitBtn.disabled = false;
       submitBtn.textContent = "Generate My Plan";
+
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
     }
   });
 })();
@@ -1670,16 +1674,7 @@ console.log("Turnstile token length:", token.length);
         sendMessage(msg);
       }
     });
-  } finally {
-  submitBtn.disabled = false;
-  submitBtn.textContent = "Generate My Plan";
-
-  // Clear the previous Turnstile token.
-  // The next submission must use a fresh token.
-  if (window.turnstile) {
-    window.turnstile.reset();
-  }
-}
+  
     (() => {
   const a = document.getElementById("book-consult-link");
   if (!a) return;
